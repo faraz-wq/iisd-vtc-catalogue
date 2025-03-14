@@ -7,9 +7,9 @@ import AnimatedCounter from './AnimatedCounter';
 const NEWS_EVENTS = [
   {
     id: 1,
-    title: "2023 Admissions Now Open",
-    description: "Applications are now being accepted for the 2023-24 academic year across all our colleges.",
-    date: "April 15, 2023",
+    title: "2025 Admissions Now Open",
+    description: "Applications are now being accepted for the 2025-26 academic year across all our colleges.",
+    date: "April 15, 2025",
     category: "Admissions",
     link: "/admissions"
   },
@@ -17,7 +17,7 @@ const NEWS_EVENTS = [
     id: 2,
     title: "Healthcare Career Fair",
     description: "Join us for a career fair featuring top healthcare employers looking to hire our graduates.",
-    date: "May 10, 2023",
+    date: "May 10, 2025",
     category: "Events",
     link: "/events/healthcare-career-fair"
   },
@@ -25,7 +25,7 @@ const NEWS_EVENTS = [
     id: 3,
     title: "New IT Lab Inauguration",
     description: "State-of-the-art IT infrastructure unveiled at Chatrapati Shivaji Maharaj Paramedical & IT College.",
-    date: "June 5, 2023",
+    date: "June 5, 2025",
     category: "Facilities",
     link: "/news/it-lab-inauguration"
   },
@@ -33,7 +33,7 @@ const NEWS_EVENTS = [
     id: 4,
     title: "Industry Partnership Announcement",
     description: "IISD partners with leading hospitals and IT companies to enhance placement opportunities.",
-    date: "June 15, 2023",
+    date: "June 15, 2025",
     category: "Partnerships",
     link: "/news/industry-partnerships"
   },

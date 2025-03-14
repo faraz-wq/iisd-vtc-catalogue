@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     title: "Software Developer, TCS",
     imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     program: "B.Sc. Information Technology",
-    year: "2023"
+    year: "2025"
   },
   {
     id: 3,

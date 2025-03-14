@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -65,24 +64,27 @@ const Navbar = () => {
   };
 
   return (
-    <nav 
+    <nav
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300 border-b", 
-        isScrolled 
-          ? "bg-white/90 backdrop-blur-md shadow-sm" 
-          : "bg-transparent"
+        "fixed top-0 z-50 w-full transition-all duration-300 border-b",
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm"
+          : "bg-transparent text-white"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <a href="/" className="flex-shrink-0 flex items-center">
-              <div className="h-10 w-auto flex items-center font-display font-bold text-xl text-maroon-600">
+              <div className={cn(
+                "h-10 w-auto flex items-center font-display font-bold text-xl",
+                isScrolled ? "text-maroon-600" : "text-white"
+              )}>
                 IISD <span className="hidden sm:inline ml-1">Institute</span>
               </div>
             </a>
           </div>
-          
+
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-1">
             {NAV_ITEMS.map((item) => (
@@ -90,7 +92,10 @@ const Navbar = () => {
                 {item.children ? (
                   <button
                     onClick={() => toggleDropdown(item.name)}
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 hover:text-maroon-600 transition-colors"
+                    className={cn(
+                      "inline-flex items-center px-3 py-2 text-sm font-medium transition-colors",
+                      isScrolled ? "text-gray-800 hover:text-maroon-600" : "text-white hover:text-gray-200"
+                    )}
                   >
                     {item.name}
                     <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 ease-in-out" />
@@ -98,14 +103,17 @@ const Navbar = () => {
                 ) : (
                   <a
                     href={item.href}
-                    className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-maroon-600 transition-colors"
+                    className={cn(
+                      "px-3 py-2 text-sm font-medium transition-colors",
+                      isScrolled ? "text-gray-800 hover:text-maroon-600" : "text-white hover:text-gray-200"
+                    )}
                   >
                     {item.name}
                   </a>
                 )}
 
                 {item.children && (
-                  <div 
+                  <div
                     className={cn(
                       "absolute top-full left-0 w-80 py-2 bg-white/95 backdrop-blur rounded-md shadow-lg border opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50",
                       activeDropdown === item.name && "opacity-100 visible translate-y-0"
@@ -129,7 +137,7 @@ const Navbar = () => {
           <div className="hidden md:flex md:items-center">
             <a
               href="/admissions"
-              className="inline-flex items-center px-5 py-2 text-sm font-medium text-white bg-maroon-600 rounded-md shadow-sm hover:bg-maroon-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-maroon-500 transition-colors"
+              className="inline-flex items-center px-5 py-2 text-sm font-medium text-white bg-maroon-600 rounded-md shadow-sm hover:bg-maroon-700 transition-colors"
             >
               Apply Now
             </a>
@@ -139,8 +147,10 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-maroon-600 hover:bg-maroon-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-maroon-500"
-              aria-expanded="false"
+              className={cn(
+                "inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset transition-colors",
+                isScrolled ? "text-gray-800 hover:text-maroon-600 hover:bg-maroon-50 focus:ring-maroon-500" : "text-white hover:text-gray-200 focus:ring-white"
+              )}
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
@@ -167,7 +177,10 @@ const Navbar = () => {
                 <div>
                   <button
                     onClick={() => toggleDropdown(item.name)}
-                    className="w-full flex justify-between items-center px-4 py-2 text-base font-medium text-gray-800 hover:bg-maroon-50 hover:text-maroon-600"
+                    className={cn(
+                      "w-full flex justify-between items-center px-4 py-2 text-base font-medium transition-colors",
+                      isScrolled ? "text-gray-800 hover:bg-maroon-50 hover:text-maroon-600" : "text-white hover:bg-gray-700"
+                    )}
                   >
                     {item.name}
                     <ChevronDown className={cn(
@@ -175,7 +188,7 @@ const Navbar = () => {
                       activeDropdown === item.name && "transform rotate-180"
                     )} />
                   </button>
-                  
+
                   <div
                     className={cn(
                       "transition-all duration-200 overflow-hidden bg-gray-50",
@@ -196,14 +209,17 @@ const Navbar = () => {
               ) : (
                 <a
                   href={item.href}
-                  className="block px-4 py-2 text-base font-medium text-gray-800 hover:bg-maroon-50 hover:text-maroon-600"
+                  className={cn(
+                    "block px-4 py-2 text-base font-medium transition-colors",
+                    isScrolled ? "text-gray-800 hover:bg-maroon-50 hover:text-maroon-600" : "text-white hover:bg-gray-700"
+                  )}
                 >
                   {item.name}
                 </a>
               )}
             </div>
           ))}
-          
+
           <div className="px-4 py-3">
             <a
               href="/admissions"

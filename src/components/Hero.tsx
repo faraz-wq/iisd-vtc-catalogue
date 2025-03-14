@@ -16,7 +16,7 @@ const SLIDES = [
       { value: 25, label: "Industry Partners" },
       { value: 10, label: "Healthcare Programs" },
     ],
-    color: "from-maroon-600/90 to-maroon-800/90",
+    color: "from-maroon-600/70 to-maroon-800/70",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const SLIDES = [
       { value: 70, label: "Practical Training" },
       { value: 15, label: "Vocational Courses" },
     ],
-    color: "from-college-green/90 to-college-green/90",
+    color: "from-college-green/70 to-college-green/70",
   },
   {
     id: 3,
@@ -44,7 +44,21 @@ const SLIDES = [
       { value: 20, label: "Specialized Labs" },
       { value: 12, label: "IT Programs" },
     ],
-    color: "from-college-blue/90 to-college-blue/90",
+    color: "from-college-blue/70 to-college-blue/70",
+  },
+  {
+    id: 4,
+    title: "Nashik Paramedical & IT College",
+    description: "Industry-aligned curriculum, state-of-the-art labs, and career support.",
+    imageSrc: "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
+    ctaText: "Learn More",
+    ctaLink: "/colleges/npic",
+    stats: [
+      { value: 95, label: "Student Satisfaction" },
+      { value: 30, label: "Modern Facilities" },
+      { value: 20, label: "Industry Tie-ups" },
+    ],
+    color: "from-indigo-600/70 to-indigo-800/70",
   },
 ];
 
@@ -52,6 +66,16 @@ const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const slideRef = useRef<HTMLDivElement>(null);
+
+  const getTextColor = (gradient) => {
+    const colorMap = {
+      "from-maroon-600/70 to-maroon-800/70": "text-maroon-600",
+      "from-college-green/70 to-college-green/70": "text-college-green",
+      "from-college-blue/70 to-college-blue/70": "text-college-blue",
+      "from-indigo-600/70 to-indigo-800/70": "text-indigo-600",
+    };
+    return colorMap[gradient] || "text-white";
+  };  
 
   const nextSlide = () => {
     if (isAnimating) return;
@@ -146,7 +170,7 @@ const Hero = () => {
                     </a>
                     <a
                       href="/admissions"
-                      className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-maroon-600 hover:bg-maroon-700 focus:outline-none"
+                      className={`inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded-lg bg-white hover:bg-gray-100 ${getTextColor(slide.color)} focus:outline-none`}
                     >
                       Apply Now
                     </a>
@@ -160,13 +184,13 @@ const Hero = () => {
                 )}>
                   {slide.stats.map((stat, statIndex) => (
                     <div 
-                      key={statIndex} 
-                      className="glass-card rounded-xl p-4 text-white text-center"
-                      style={{ animationDelay: `${statIndex * 100 + 300}ms` }}
-                    >
-                      <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}%</div>
-                      <div className="text-sm font-medium opacity-80">{stat.label}</div>
-                    </div>
+                    key={statIndex} 
+                    className={`glass-card rounded-xl p-4 text-center ${getTextColor(slide.color)}`}
+                    style={{ animationDelay: `${statIndex * 100 + 300}ms` }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}%</div>
+                    <div className="text-sm font-medium">{stat.label}</div>
+                  </div>
                   ))}
                 </div>
               </div>
