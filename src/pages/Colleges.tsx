@@ -499,7 +499,7 @@ const Colleges = () => {
                   <p className="text-gray-700 mt-4">{college.description}</p>
                   <div className="mt-6">
                     <Link
-                      to={`/college/${college.id}`}
+                      to={`/college/${college.name}`}
                       className={`inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition bg-maroon-600`}
                     >
                       View Details
