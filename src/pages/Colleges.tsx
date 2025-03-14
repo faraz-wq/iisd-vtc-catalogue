@@ -7,8 +7,8 @@ const COLLEGES = {
   csmpic: {
     name:  "Chhatrapati Shivaji Maharaj Paramedical & IT College",
     shortName: "CSMPIC",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-    banner: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1200&q=80",
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     description: "Established in 2010, Chatrapati Shivaji Maharaj Paramedical & IT College has been at the forefront of providing quality education in paramedical sciences and information technology. Our state-of-the-art facilities and experienced faculty ensure that students receive the best education possible.",
     location: "Mumbai, Maharashtra",
     affiliation: "NCVET (Central Government of India)",
@@ -133,12 +133,12 @@ const COLLEGES = {
     ]
   },
   royal: {
-    name: "Royal College",
+    name: "Royal College of Vocational Training and Skill Development",
     shortName: "RC",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-    banner: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     description: "Royal College, established in 2008, is renowned for its excellence in education across various disciplines. Our focus on practical knowledge and industry exposure makes our graduates highly sought after in the job market.",
-    location: "Pune, Maharashtra",
+    location: "Thane, Maharashtra",
     eligibility: "X-XII Passed/Any Degree Eligibility",
     installmentFeesOption: true,
     jobTrainingFacility: true,
@@ -215,8 +215,8 @@ const COLLEGES = {
   nhpic: {
     name: "N.H. Paramedical and IT College",
     shortName: "NHPIC",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-    banner: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80",
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     description: "N.H. Paramedical and IT College, founded in 2015, is committed to providing high-quality education in paramedical sciences and information technology. Our innovative teaching methodologies ensure that students are well-prepared for their future careers.",
     location: "Nagpur, Maharashtra",
     contact: {
@@ -306,8 +306,8 @@ const COLLEGES = {
   npic: {
     name: "Nashik Paramedical & IT College",
     shortName: "NPIC",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-    banner: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     description: "Nashik Paramedical & IT College, established in 2012, is committed to providing quality education in paramedical sciences and information technology. Our focus on practical training and industry partnerships ensures that our graduates are job-ready.",
     location: "Nashik, Maharashtra",
     "affiliation": "NCVET (Central Government of India)",
@@ -389,8 +389,8 @@ const COLLEGES = {
   memhs: {
     "name": "Millat English Medium High School & Jr. College, New Nashik",
     "shortName": "Millat School",
-    "logo": "", 
-    "banner": "", 
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     "description": "A government-recognized minority institution offering quality education from Nursery to 12th standard with a focus on academic excellence and Deeniyat studies.",
     "location": "New Nashik, Maharashtra",
     "affiliation": "Government Recognized (UDISE No. 2720184811)",
@@ -415,8 +415,8 @@ const COLLEGES = {
   ns30: {
     "name": "Nashik Super-30 (NEET/IIT-JEE Academy)",
     "shortName": "Nashik Super-30",
-    "logo": "",
-    "banner": "",
+    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
+    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
     "description": "A premier coaching institute dedicated to training students for NEET and IIT-JEE exams with expert guidance and a structured curriculum.",
     "location": "Nashik, Maharashtra",
     "programs": [
@@ -499,7 +499,7 @@ const Colleges = () => {
                   <p className="text-gray-700 mt-4">{college.description}</p>
                   <div className="mt-6">
                     <Link
-                      to={`/college/${index}`}
+                      to={`/college/${college.id}`}
                       className={`inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition bg-maroon-600`}
                     >
                       View Details
