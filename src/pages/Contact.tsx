@@ -12,34 +12,49 @@ import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   {
-    college: "Chatrapati Shivaji Maharaj Paramedical & IT College",
-    address: "123 Education Lane, Mumbai, Maharashtra 400001",
-    phone: "+91 98765 43210",
-    email: "info@csmpic.edu.in",
-    hours: "Monday - Saturday: 9:00 AM - 5:00 PM"
+    "college": "Chhatrapati Shivaji Maharaj Paramedical & IT College",
+    "address": "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth - 411042",
+    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
+    "email": "info@csmpic.edu.in",
+    "hours": "Monday - Saturday: 9:00 AM - 5:00 PM"
   },
   {
-    college: "Royal College",
-    address: "456 Knowledge Road, Pune, Maharashtra 411001",
-    phone: "+91 87654 32109",
-    email: "info@royalcollege.edu.in",
-    hours: "Monday - Saturday: 8:30 AM - 4:30 PM"
+    "college": "Royal College of Vocational Training & Skill Development",
+    "address": "Royal College Campus, Penkar Pada, Mira Road (East), Dist. Thane - 401107",
+    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
+    "email": "info@royalcollege.edu.in",
+    "hours": "Monday - Saturday: 8:30 AM - 4:30 PM"
   },
   {
-    college: "N.H. Paramedical & IT College",
-    address: "789 Learning Street, Nagpur, Maharashtra 440001",
-    phone: "+91 76543 21098",
-    email: "info@nhpic.edu.in",
-    hours: "Monday - Saturday: 9:30 AM - 5:30 PM"
+    "college": "N.H. Paramedical and IT College (NHPC)",
+    "address": "NH English Academy, Asmita Enclave, Mira Nagar, Mira Road (East), Dist. Thane - 401107",
+    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
+    "email": "info@nhpic.edu.in",
+    "hours": "Monday - Saturday: 9:30 AM - 5:30 PM"
   },
   {
-    college: "Nashik Paramedical & IT College",
-    address: "321 Education Boulevard, Nashik, Maharashtra 422001",
-    phone: "+91 65432 10987",
-    email: "info@npic.edu.in",
-    hours: "Monday - Saturday: 9:00 AM - 5:00 PM"
+    "college": "Nashik Paramedical & IT College",
+    "address": "Millat Campus, Survey No. 973, Sector B/3, Shivaji Chowk, New Nashik",
+    "phone": "+91 9834093380",
+    "email": "info@npic.edu.in",
+    "hours": "Monday - Saturday: 9:00 AM - 5:00 PM"
+  },
+  {
+    "college": "Millat English Medium High School & Jr. College, New Nashik",
+    "address": "New Nashik",
+    "phone": "+91 9970966551, +91 9021911115",
+    "email": "millat.englishnews@gmail.com",
+    "hours": "Monday - Saturday: 9:00 AM - 4:00 PM"
+  },
+  {
+    "college": "Nashik Super-30 (NEET/IIT-JEE Academy)",
+    "address": "Nashik",
+    "phone": "+91 8378815050, +91 9834093380",
+    "email": "nashiksuper30@gmail.com",
+    "hours": "Monday - Saturday: 8:00 AM - 6:00 PM"
   }
-];
+]
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
