@@ -27,7 +27,7 @@ const TESTIMONIALS = [
     quote: "Royal College's vocational training gave me specialized skills in medical lab technology. The 70% practical training approach made all the difference in my career.",
     name: "Rahul Deshmukh",
     title: "Medical Lab Technician, Fortis Healthcare",
-    imageSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    imageSrc: "https://images.unsplash.com/photo-1663576139896-f1e9b9537634?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     program: "Diploma in Medical Lab Technology",
     year: "2021"
   },
@@ -111,7 +111,7 @@ const TestimonialsSection = () => {
             <div className="grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
               {/* Quote */}
               <div className="bg-white/5 backdrop-blur-sm p-8 md:p-10 rounded-xl border border-white/10 relative">
-                <Quote className="absolute text-maroon-500/20 h-24 w-24 -top-4 -left-4 rotate-180" />
+                <Quote className="absolute text-maroon-500/20 h-24 w-24 -top-4 -left-4 rotate-180 z-1100" />
                 
                 <div className="relative">
                   {TESTIMONIALS.map((testimonial, idx) => (

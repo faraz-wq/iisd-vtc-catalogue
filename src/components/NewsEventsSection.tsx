@@ -11,7 +11,7 @@ const NEWS_EVENTS = [
     description: "Applications are now being accepted for the 2025-26 academic year across all our colleges.",
     date: "April 15, 2025",
     category: "Admissions",
-    link: "/admissions"
+    link: "/inquire"
   },
   {
     id: 2,

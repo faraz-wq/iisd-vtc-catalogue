@@ -149,6 +149,106 @@ const PROGRAMS = [
     features: ["Advanced Diagnostics", "Pathology Specialization", "Research Methods"],
     colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College", "Nashik Paramedical & IT College"]
   },
+  {
+    id: 13,
+    title: "Diploma in Information Technology (DIT)",
+    category: "it",
+    duration: "1 Year",
+    eligibility: "10+2",
+    description: "Fundamental IT diploma covering software applications, networking, and basic programming.",
+    career: "IT Support Technician, Junior Developer, Network Assistant",
+    features: ["Basic Programming", "Network Essentials", "IT Fundamentals"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College"]
+  },
+  {
+    id: 14,
+    title: "Diploma in Physiotherapy & Trauma Technology (DPTT)",
+    category: "paramedical",
+    duration: "2 Years",
+    eligibility: "10+2 with Science",
+    description: "Training in physiotherapy techniques and emergency trauma management.",
+    career: "Physiotherapy Assistant, Trauma Care Technician, Rehabilitation Aide",
+    features: ["Physiotherapy Training", "Trauma Care", "Hospital Internships"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College"]
+  },
+  {
+    id: 15,
+    title: "B.Voc. in Radiology & Imaging Technology",
+    category: "paramedical",
+    duration: "3 Years",
+    eligibility: "10+2 with Science",
+    description: "Specialized training in radiographic imaging and diagnostic technology.",
+    career: "Radiology Technician, Imaging Technologist, Diagnostic Specialist",
+    features: ["Radiography Techniques", "Medical Imaging", "Hospital Training"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College", "N.H. Paramedical and IT College"]
+  },
+  {
+    id: 16,
+    title: "B.Voc. in Medical Lab Technology",
+    category: "paramedical",
+    duration: "3 Years",
+    eligibility: "10+2 with Science",
+    description: "Comprehensive training in laboratory diagnostics and medical testing.",
+    career: "Medical Lab Technician, Research Assistant, Pathology Technician",
+    features: ["Lab Training", "Medical Testing", "Research Methods"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College", "N.H. Paramedical and IT College"]
+  },
+  {
+    id: 17,
+    title: "B.Voc. in Cardiac Care Technology",
+    category: "paramedical",
+    duration: "3 Years",
+    eligibility: "10+2 with Science",
+    description: "Advanced training in cardiac care, ECG monitoring, and cardiovascular diagnostics.",
+    career: "Cardiac Care Technician, ECG Specialist, Cardiology Assistant",
+    features: ["Cardiac Monitoring", "ECG Training", "Emergency Response"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College"]
+  },
+  {
+    id: 18,
+    title: "PG X-RAY (Postgraduate in X-Ray Technology)",
+    category: "paramedical",
+    duration: "2 Years",
+    eligibility: "Bachelor’s Degree in Science",
+    description: "Advanced study in radiography techniques and medical imaging.",
+    career: "Senior Radiographer, Medical Imaging Consultant, X-Ray Specialist",
+    features: ["Advanced Imaging", "Medical Radiography", "Diagnostic Training"],
+    colleges: ["Chatrapati Shivaji Maharaj Paramedical & IT College"]
+  },
+  {
+    id: 19,
+    title: "Diploma in Operation Theatre Technology",
+    category: "vocational",
+    duration: "2 Years",
+    eligibility: "10+2 with Science",
+    description: "Hands-on training in operation theatre procedures and surgical assistance.",
+    career: "OT Technician, Surgical Assistant, Healthcare Technician",
+    features: ["Surgical Training", "Anesthesia Assistance", "Hospital Internships"],
+    colleges: ["Royal College of Vocational Training & Skill Development"]
+  },
+  {
+    id: 20,
+    title: "B.Voc. in Theater Technician",
+    category: "paramedical",
+    duration: "3 Years",
+    eligibility: "10+2 with Science",
+    description: "Practical training in surgical room management and patient preparation.",
+    career: "Surgical Room Assistant, OT Technician, Healthcare Facility Operator",
+    features: ["Operation Theatre Assistance", "Surgical Prep", "Hospital Training"],
+    colleges: ["N.H. Paramedical and IT College"]
+  },
+  {
+    id: 21,
+    title: "B.Voc. in Dialysis Technician",
+    category: "paramedical",
+    duration: "3 Years",
+    eligibility: "10+2 with Science",
+    description: "Specialized course in dialysis treatment and renal healthcare support.",
+    career: "Dialysis Technician, Renal Care Specialist, Hospital Dialysis Assistant",
+    features: ["Dialysis Machine Handling", "Patient Monitoring", "Hospital Training"],
+    colleges: ["N.H. Paramedical and IT College"]
+  }
+  
 ];
 
 const ProgramCard = ({ program }: { program: typeof PROGRAMS[0] }) => {
@@ -408,11 +508,8 @@ const Programs = () => {
             Take the first step toward a rewarding career by applying to one of our specialized programs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/admissions" className="px-6 py-3 bg-white text-blue-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
+            <a href="/inquire" className="px-6 py-3 bg-white text-blue-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
               Apply Now
-            </a>
-            <a href="/inquire" className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors">
-              Request Information
             </a>
           </div>
         </div>

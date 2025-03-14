@@ -42,7 +42,7 @@ const Index = () => {
             <div className="p-6 bg-white rounded-xl shadow-md transform transition-all hover:scale-105">
               <Building className="h-10 w-10 mx-auto mb-4 text-college-green" />
               <div className="text-4xl font-bold text-gray-800">
-                <AnimatedCounter value={4} className="text-3xl md:text-4xl font-bold" />
+                <AnimatedCounter value={6} className="text-3xl md:text-4xl font-bold" />
               </div>
               <p className="mt-2 text-gray-600 font-medium">Campuses</p>
             </div>
@@ -139,7 +139,7 @@ const Index = () => {
                 academic year are now open.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="/admissions" className="px-6 py-3 bg-white text-maroon-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
+                <a href="/inquire" className="px-6 py-3 bg-white text-maroon-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
                   Apply Now
                 </a>
                 <a href="/programs" className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors">

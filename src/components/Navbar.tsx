@@ -27,7 +27,7 @@ const NAV_ITEMS = [
   },
   {
     name: 'Admissions',
-    href: '/admissions',
+    href: '/inquire',
   },
   {
     name: 'Student Resources',
@@ -136,7 +136,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex md:items-center">
             <a
-              href="/admissions"
+              href="/inquire"
               className="inline-flex items-center px-5 py-2 text-sm font-medium text-white bg-maroon-600 rounded-md shadow-sm hover:bg-maroon-700 transition-colors"
             >
               Apply Now
@@ -222,7 +222,7 @@ const Navbar = () => {
 
           <div className="px-4 py-3">
             <a
-              href="/admissions"
+              href="/inquire"
               className="block w-full text-center px-5 py-2 text-base font-medium text-white bg-maroon-600 rounded-md shadow-sm hover:bg-maroon-700 transition-colors"
             >
               Apply Now

@@ -294,11 +294,8 @@ const About = () => {
             Take the first step toward a rewarding career in healthcare or technology by applying to one of our specialized programs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/admissions" className="px-6 py-3 bg-white text-maroon-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
+            <a href="/inquire" className="px-6 py-3 bg-white text-maroon-700 font-medium rounded-md hover:bg-gray-100 transition-colors">
               Apply Now
-            </a>
-            <a href="/inquire" className="px-6 py-3 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors">
-              Request Information
             </a>
           </div>
         </div>

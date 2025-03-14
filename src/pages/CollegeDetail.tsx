@@ -28,15 +28,15 @@ const COLLEGES = {
     description: "Established in 2010, Chatrapati Shivaji Maharaj Paramedical & IT College has been at the forefront of providing quality education in paramedical sciences and information technology. Our state-of-the-art facilities and experienced faculty ensure that students receive the best education possible.",
     location: "Mumbai, Maharashtra",
     contact: {
-      address: "123 College Road, Andheri East, Mumbai, Maharashtra 400069",
-      phone: "+91 98765 43210",
+      address: "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth, Pune - 411042",
+      phone: ["+91 8149709882", "+91 8379059883", "+91 8928413994"],
       email: "info@csmpic.edu.in"
     },
     color: "maroon-600",
     programs: [
       {
         name: "B.P.Th. (Bachelor in Physiotherapy)",
-        duration: "4 years",
+        duration: "4.5 years",
         description: "A comprehensive program that prepares students for a career in physiotherapy with hands-on clinical experience."
       },
       {
@@ -50,9 +50,49 @@ const COLLEGES = {
         description: "A degree program focusing on computer systems, software development, and information management."
       },
       {
+        name: "B.Sc. Computer Science",
+        duration: "3 years",
+        description: "A program that provides an in-depth understanding of computer science, algorithms, and programming."
+      },
+      {
         name: "BCA (Bachelor of Computer Applications)",
         duration: "3 years",
         description: "A program that prepares students for careers in the field of computer applications and software development."
+      },
+      {
+        name: "B.Voc. (Radiology & Imaging Technology)",
+        duration: "3 years",
+        description: "A professional course focused on radiology and imaging technologies for medical diagnostics."
+      },
+      {
+        name: "B.Voc. (Medical Lab Technology)",
+        duration: "3 years",
+        description: "A vocational course specializing in laboratory techniques and medical diagnostics."
+      },
+      {
+        name: "B.Voc. (Cardiac Care Technology)",
+        duration: "3 years",
+        description: "A specialized course in cardiac care, covering ECG, echocardiography, and critical care support."
+      },
+      {
+        name: "DMLT (Diploma in Medical Lab Technology)",
+        duration: "2 years",
+        description: "A diploma course focused on laboratory techniques, diagnostics, and medical testing."
+      },
+      {
+        name: "D.Pharm (Diploma in Pharmacy)",
+        duration: "2 years",
+        description: "A foundational course for students pursuing a career in pharmacy and pharmaceutical sciences."
+      },
+      {
+        name: "PG DMLT (Post Graduate Diploma in Medical Lab Technology)",
+        duration: "1 year",
+        description: "A postgraduate diploma for advanced skills in medical laboratory diagnostics."
+      },
+      {
+        name: "PG X-RAY (Post Graduate Diploma in X-Ray Technology)",
+        duration: "1 year",
+        description: "A specialized diploma in X-ray imaging and radiography techniques."
       }
     ],
     facilities: [
@@ -581,7 +621,7 @@ const CollegeDetail = () => {
                           <Phone className={`h-5 w-5 text-${college.color}`} />
                           <div>
                             <h3 className="font-medium text-gray-800">Phone</h3>
-                            <p className="text-sm text-gray-600">{college.contact.phone}</p>
+                            <p className="text-sm text-gray-600 gap-6">{college.contact.phone}</p>
                           </div>
                         </div>
                         <div className="flex items-start space-x-3">

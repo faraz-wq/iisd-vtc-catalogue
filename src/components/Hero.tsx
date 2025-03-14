@@ -5,62 +5,91 @@ import { cn } from "@/lib/utils";
 
 const SLIDES = [
   {
-    id: 1,
-    title: "Chatrapati Shivaji Maharaj Paramedical & IT College",
-    description: "Excellence in paramedical education with UGC approved programs",
-    imageSrc: "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "Explore Programs",
-    ctaLink: "/colleges/csmpic",
-    stats: [
-      { value: 100, label: "Job Placement" },
-      { value: 25, label: "Industry Partners" },
-      { value: 10, label: "Healthcare Programs" },
+    "id": 1,
+    "title": "Chatrapati Shivaji Maharaj Paramedical & IT College",
+    "description": "Excellence in paramedical education with UGC approved programs",
+    "imageSrc": "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "Explore Programs",
+    "ctaLink": "/colleges/csmpic",
+    "stats": [
+      { "value": 100, "label": "Job Placement" },
+      { "value": 25, "label": "Industry Partners" },
+      { "value": 10, "label": "Healthcare Programs" }
     ],
-    color: "from-maroon-600/70 to-maroon-800/70",
+    "color": "from-maroon-600/70 to-maroon-800/70"
   },
   {
-    id: 2,
-    title: "Royal College of Vocational Training",
-    description: "Training skilled professionals for tomorrow's workforce needs",
-    imageSrc: "https://images.unsplash.com/photo-1567168544646-208fa5d408fb?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "Discover Training",
-    ctaLink: "/colleges/royal",
-    stats: [
-      { value: 98, label: "Employment Rate" },
-      { value: 70, label: "Practical Training" },
-      { value: 15, label: "Vocational Courses" },
+    "id": 2,
+    "title": "Royal College of Vocational Training & Skill Development",
+    "description": "Recognized by Government of India, offering vocational and skill-based courses",
+    "imageSrc": "https://images.unsplash.com/photo-1567168544646-208fa5d408fb?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "Discover Training",
+    "ctaLink": "/colleges/royal",
+    "stats": [
+      { "value": 98, "label": "Employment Rate" },
+      { "value": 70, "label": "Practical Training" },
+      { "value": 15, "label": "Vocational Courses" }
     ],
-    color: "from-college-green/70 to-college-green/70",
+    "color": "from-college-green/70 to-college-green/70"
   },
   {
-    id: 3,
-    title: "N.H. Paramedical and IT College",
-    description: "Bridging healthcare and technology for future professionals",
-    imageSrc: "https://images.unsplash.com/photo-1581093806997-124204d9fa9d?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "View Courses",
-    ctaLink: "/colleges/nhpic",
-    stats: [
-      { value: 100, label: "Career Support" },
-      { value: 20, label: "Specialized Labs" },
-      { value: 12, label: "IT Programs" },
+    "id": 3,
+    "title": "N.H. Paramedical and IT College (NHPC)",
+    "description": "Bridging healthcare and technology for future professionals",
+    "imageSrc": "https://images.unsplash.com/photo-1581093806997-124204d9fa9d?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "View Courses",
+    "ctaLink": "/colleges/nhpic",
+    "stats": [
+      { "value": 100, "label": "Career Support" },
+      { "value": 20, "label": "Specialized Labs" },
+      { "value": 12, "label": "IT Programs" }
     ],
-    color: "from-college-blue/70 to-college-blue/70",
+    "color": "from-college-blue/70 to-college-blue/70"
   },
   {
-    id: 4,
-    title: "Nashik Paramedical & IT College",
-    description: "Industry-aligned curriculum, state-of-the-art labs, and career support.",
-    imageSrc: "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "Learn More",
-    ctaLink: "/colleges/npic",
-    stats: [
-      { value: 95, label: "Student Satisfaction" },
-      { value: 30, label: "Modern Facilities" },
-      { value: 20, label: "Industry Tie-ups" },
+    "id": 4,
+    "title": "Millat English Medium High School & Jr. College",
+    "description": "Government Recognized Minority Institution",
+    "imageSrc": "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "Learn More",
+    "ctaLink": "/colleges/millat",
+    "stats": [
+      { "value": 500, "label": "Students Enrolled" },
+      { "value": 30, "label": "Faculty Members" },
+      { "value": 12, "label": "Years of Excellence" }
     ],
-    color: "from-indigo-600/70 to-indigo-800/70",
+    "color": "from-indigo-600/70 to-indigo-800/70"
   },
-];
+  {
+    "id": 5,
+    "title": "Nashik Super-30 (NEET/IIT-JEE Academy)",
+    "description": "Top-notch preparation for NEET/IIT-JEE aspirants",
+    "imageSrc": "https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "Join Coaching",
+    "ctaLink": "/colleges/nashiksuper30",
+    "stats": [
+      { "value": 95, "label": "Success Rate" },
+      { "value": 10, "label": "Expert Faculty" },
+      { "value": 500, "label": "Students Trained" }
+    ],
+    "color": "from-orange-600/70 to-orange-800/70"
+  },
+  {
+    "id": 6,
+    "title": "Nashik Paramedical & IT College",
+    "description": "Industry-aligned curriculum, state-of-the-art labs, and career support.",
+    "imageSrc": "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
+    "ctaText": "Learn More",
+    "ctaLink": "/colleges/npic",
+    "stats": [
+      { "value": 95, "label": "Student Satisfaction" },
+      { "value": 30, "label": "Modern Facilities" },
+      { "value": 20, "label": "Industry Tie-ups" }
+    ],
+    "color": "from-indigo-600/70 to-indigo-800/70"
+  }
+]
+
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -73,6 +102,7 @@ const Hero = () => {
       "from-college-green/70 to-college-green/70": "text-college-green",
       "from-college-blue/70 to-college-blue/70": "text-college-blue",
       "from-indigo-600/70 to-indigo-800/70": "text-indigo-600",
+      "from-orange-600/70 to-orange-800/70": "text-orange-800"
     };
     return colorMap[gradient] || "text-white";
   };  
@@ -169,7 +199,7 @@ const Hero = () => {
                       {slide.ctaText}
                     </a>
                     <a
-                      href="/admissions"
+                      href="/inquire"
                       className={`inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded-lg bg-white hover:bg-gray-100 ${getTextColor(slide.color)} focus:outline-none`}
                     >
                       Apply Now

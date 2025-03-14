@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Briefcase, MapPin, Calendar, Search, Building, GraduationCap, Check, ArrowRight } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, Search, Building, GraduationCap, Check, ArrowRight, Mail } from 'lucide-react';
 
 const CAREER_CATEGORIES = [
   "All Categories",
