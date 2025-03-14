@@ -21,7 +21,7 @@ const NAV_ITEMS = [
       { name: 'Nashik Paramedical & IT College', href: '/colleges/npic' },
       { name: 'Millat English Medium High School & Jr. College, New Nashik', href: '/colleges/memhs' },
       { name: 'Nashik Super-30 (NEET/IIT-JEE Academy)', href: '/colleges/ns30' },      
-      { all: 'View All', href: '/colleges'},
+      { name: 'View All', href: '/colleges'},
     ],
   },
   {
