@@ -365,8 +365,8 @@ export const COLLEGES = [
   {
     "name": "Royal College of Vocational Training and Skill Development",
     "shortName": "royal",
-    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
-    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
+    "logo": "/Royal Clg Thane.jpg",
+    "banner": "/Royal Clg Thane.jpg",
     "description": "Royal College, established in 2008, is renowned for its excellence in education across various disciplines. Our focus on practical knowledge and industry exposure makes our graduates highly sought after in the job market.",
     "location": "Thane, Maharashtra",
     "eligibility": "X-XII Passed/Any Degree Eligibility",
@@ -445,8 +445,8 @@ export const COLLEGES = [
   {
     "name": "N.H. Paramedical and IT College",
     "shortName": "nhpic",
-    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
-    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
+    "logo": "/NHPC Thane.jpg",
+    "banner": "/NHPC Thane.jpg",
     "description": "N.H. Paramedical and IT College, founded in 2015, is committed to providing high-quality education in paramedical sciences and information technology. Our innovative teaching methodologies ensure that students are well-prepared for their future careers.",
     "location": "Nagpur, Maharashtra",
     "contact": {
@@ -537,8 +537,8 @@ export const COLLEGES = [
   {
     "name": "Nashik Paramedical & IT College",
     "shortName": "npic",
-    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
-    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
+    "logo": "/NHPC Thane.jpg",
+    "banner": "/NHPC Thane.jpg",
     "description": "Nashik Paramedical & IT College, established in 2012, is committed to providing quality education in paramedical sciences and information technology. Our focus on practical training and industry partnerships ensures that our graduates are job-ready.",
     "location": "Nashik, Maharashtra",
     "affiliation": "NCVET (Central Government of India)",
@@ -620,8 +620,8 @@ export const COLLEGES = [
   {
     "name": "Millat English Medium High School & Jr. College, New Nashik",
     "shortName": "memhs",
-    "logo": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=800&auto=format&fit=crop",
-    "banner": "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop",
+    "logo": "/Millat Nashik.jpg",
+    "banner": "/Millat Nashik.jpg",
     "description": "A government-recognized minority institution offering quality education from Nursery to 12th standard with a focus on academic excellence and Deeniyat studies.",
     "location": "New Nashik, Maharashtra",
     "affiliation": "Government Recognized (UDISE No. 2720184811)",
