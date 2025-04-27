@@ -12,28 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { MessageSquare, Book, Send, Phone, Mail, Calendar, Clock } from "lucide-react";
-
-const COLLEGES = [
-  "Chatrapati Shivaji Maharaj Paramedical & IT College",
-  "Royal College",
-  "N.H. Paramedical & IT College",
-  "Nashik Paramedical & IT College"
-];
-
-const PROGRAMS = [
-  { id: 1, name: "B.P.Th. (Bachelor in Physiotherapy)", category: "paramedical" },
-  { id: 2, name: "G.N.M. (General Nursing and Midwifery)", category: "paramedical" },
-  { id: 3, name: "B.Sc. (Medical Laboratory Technology)", category: "paramedical" },
-  { id: 4, name: "D.Pharm (Diploma in Pharmacy)", category: "pharmacy" },
-  { id: 5, name: "B.Sc. IT (Information Technology)", category: "it" },
-  { id: 6, name: "BCA (Bachelor of Computer Applications)", category: "it" },
-  { id: 7, name: "Medical Lab Technician", category: "vocational" },
-  { id: 8, name: "X-Ray Technician", category: "vocational" },
-  { id: 9, name: "B.Pharm (Bachelor of Pharmacy)", category: "pharmacy" },
-  { id: 10, name: "Web Development & Design", category: "it" },
-  { id: 11, name: "Cardiac Care Technician", category: "vocational" },
-  { id: 12, name: "PG DMLT (Pathology & Imaging Technology)", category: "paramedical" },
-];
+import { COLLEGES, PROGRAMS } from './collegedata';
 
 type InquiryFormData = {
   name: string;
@@ -138,7 +117,7 @@ const InquireForm = () => {
                   >
                     <option value="">Select a college</option>
                     {COLLEGES.map((college, index) => (
-                      <option key={index} value={college}>{college}</option>
+                      <option key={index} value={college.name}>{college.name}</option>
                     ))}
                   </select>
                 </FormControl>
@@ -162,7 +141,7 @@ const InquireForm = () => {
                 >
                   <option value="">Select a program</option>
                   {PROGRAMS.map((program) => (
-                    <option key={program.id} value={program.name}>{program.name}</option>
+                    <option key={program.id} value={program.title}>{program.title}</option>
                   ))}
                 </select>
               </FormControl>

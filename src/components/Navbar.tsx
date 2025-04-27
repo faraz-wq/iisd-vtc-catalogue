@@ -170,7 +170,7 @@ const Navbar = () => {
       <div
         className={cn(
           "md:hidden transition-all duration-300 overflow-hidden",
-          isMenuOpen ? "max-h-screen border-t bg-white/95 backdrop-blur" : "max-h-0"
+          isMenuOpen ? "max-h-screen border-t bg-white/95 backdrop-blur text-gray-700" : "max-h-0"
         )}
       >
         <div className="py-3 space-y-1 sm:px-3">
@@ -181,8 +181,7 @@ const Navbar = () => {
                   <button
                     onClick={() => toggleDropdown(item.name)}
                     className={cn(
-                      "w-full flex justify-between items-center px-4 py-2 text-base font-medium transition-colors",
-                      isScrolled ? "text-gray-800 hover:bg-maroon-50 hover:text-maroon-600" : "text-white hover:bg-gray-700"
+                      "w-full flex justify-between items-center px-4 py-2 text-base font-medium transition-colors"
                     )}
                   >
                     {item.name}
@@ -213,8 +212,7 @@ const Navbar = () => {
                 <a
                   href={item.href}
                   className={cn(
-                    "block px-4 py-2 text-base font-medium transition-colors",
-                    isScrolled ? "text-gray-800 hover:bg-maroon-50 hover:text-maroon-600" : "text-white hover:bg-gray-700"
+                    "block px-4 py-2 text-base font-medium transition-colors"
                   )}
                 >
                   {item.name}
