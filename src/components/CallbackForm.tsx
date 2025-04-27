@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Phone, Calendar, Clock, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CallbackForm = () => {
   const [formData, setFormData] = useState({
@@ -24,23 +27,42 @@ const CallbackForm = () => {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent default form submission behavior
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success('Your callback request has been submitted successfully. Our team will contact you shortly.');
+  
+    try {
+      // Send the form data to the backend endpoint
+      const response = await axios.post(`${API_URL}/forms`, formData);
+  
+      // Show success toast notification
+      toast.success(
+        "Your callback request has been submitted successfully. Our team will contact you shortly."
+      );
+  
+      console.log("Server response:", response.data);
+  
+      // Reset the form fields after successful submission
       setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        program: '',
-        time: '',
-        message: ''
+        name: "",
+        phone: "",
+        email: "",
+        program: "",
+        time: "",
+        message: "",
       });
+    } catch (error) {
+      // Handle errors and show an error toast notification
+      console.error("Error submitting form:", error);
+  
+      toast.error(
+        error.response?.data?.message ||
+          "An error occurred while submitting your form. Please try again later."
+      );
+    } finally {
+      // Ensure the loading state is reset
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
   
   return (
