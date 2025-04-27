@@ -10,7 +10,7 @@ export interface College {
   logo?: string;
   banner?: string;
   description: string;
-  location: Location;
+  location: string;
   affiliation?: string;
   contact?: Contact;
   color: string;
@@ -19,13 +19,7 @@ export interface College {
   faculty: Faculty[];
   events: Event[];
 }
-
-interface Location{
-  latitude: number;
-  longitude: number;
-  address?: string;
-}
-
+ 
 interface Contact {
   address?: string;
   phone?: string[];
@@ -84,9 +78,24 @@ export const getCollege = async (id: string): Promise<College> => {
   }
 };
 
-function cleanCollegeData(data: any): any {
+
+export const getCollegeByName = async (short: string): Promise<College> => {
+  try {
+    const response = await axios.get(`${API_URL}/short/${short}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.message);
+    }
+    console.log(error);
+    throw new Error('Failed to fetch college');
+  }
+};
+
+function cleanCollegeData(data)  {
   // Initialize cleaned data object
-  const cleanedData: any = { ...data };
+  const cleanedData = { ...data };
 
   // Parse 'contact' field from JSON string to object
   if (typeof cleanedData.contact === "string") {

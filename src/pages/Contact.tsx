@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import axios from 'axios';
 
 const contactInfo = [
   {
@@ -73,33 +74,51 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
-      
-      toast({
-        title: "Message Sent Successfully",
-        description: "We'll get back to you as soon as possible.",
-        variant: "default",
-      });
-      
-      // Reset success message after 3 seconds
+  
+    try {
+      const API_URL = import.meta.env.VITE_API_URL;
+      await axios.post(`${API_URL}/forms`, formData);
+  
+      // Simulate form submission delay
       setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
-    }, 1500);
+        setIsSubmitting(false);
+        setIsSuccess(true);
+  
+        // Reset form fields
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+  
+        // Show success toast
+        toast({
+          title: "Message Sent Successfully",
+          description: "We'll get back to you as soon as possible.",
+          variant: "default",
+        });
+  
+        // Reset success state after 3 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
+      }, 1500); // Simulated delay
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error("Form submission failed:", error);
+  
+      // Show error toast
+      toast({
+        title: "Submission Failed",
+        description: "An error occurred while sending your message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
   
   return (
@@ -316,13 +335,17 @@ const Contact = () => {
           
           <div className="relative h-96 rounded-xl overflow-hidden shadow-md border border-gray-200">
             {/* Replace with actual Google Maps embed */}
-            <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-maroon-400 mx-auto mb-4" />
-                <p className="text-gray-600">Google Maps Embed Placeholder</p>
-                <p className="text-sm text-gray-500 mt-2">123 Education Lane, Mumbai, Maharashtra 400001</p>
-              </div>
-            </div>
+            <iframe
+                loading="lazy"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                  "Chhatrapati Shivaji Maharaj Paramedical & IT College" +
+                  "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth - 411042"
+                )}&output=embed`}
+                className="w-full h-full"
+                style={{ border: "0" }}
+                allowFullScreen
+                title="College Location on Google Maps"
+              ></iframe>
           </div>
         </div>
       </section>

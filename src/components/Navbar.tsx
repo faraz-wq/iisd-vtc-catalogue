@@ -31,11 +31,7 @@ const NAV_ITEMS = [
   {
     name: 'Admissions',
     href: '/inquire',
-  },
-  {
-    name: 'Student Resources',
-    href: '/resources',
-  },
+  }, 
   {
     name: 'Contact Us',
     href: '/contact',

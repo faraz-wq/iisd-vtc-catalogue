@@ -1,11 +1,58 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { MapPin } from "lucide-react";
-
-import { COLLEGES } from "./collegedata";
+import { MapPin } from "lucide-react"; // Adjust the import path as needed
+import { College, getColleges } from "@/services/collegeService";
 
 const Colleges = () => {
+  const [colleges, setColleges] = useState<College[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchColleges = async () => {
+      try {
+        const collegesData = await getColleges();
+        setColleges(collegesData);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load colleges. Please try again later.");
+        setLoading(false);
+      }
+    };
+
+    fetchColleges();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow py-12 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-gray-700">Loading colleges...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow py-12 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-red-600">{error}</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -30,7 +77,7 @@ const Colleges = () => {
       <main className="flex-grow py-12 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COLLEGES.map((college, index) => (
+            {colleges.map((college, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
@@ -58,7 +105,7 @@ const Colleges = () => {
                   <p className="text-gray-700 mt-4">{college.description}</p>
                   <div className="mt-6">
                     <Link
-                      to={`/college/${college.shortName}`}
+                      to={`/colleges/${college.shortName}`}
                       className={`inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition bg-maroon-600`}
                     >
                       View Details
