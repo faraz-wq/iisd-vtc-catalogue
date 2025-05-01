@@ -304,15 +304,7 @@ const Contact = () => {
                               {info.email}
                             </a>
                           </div>
-                        </div>
-                        
-                        <div className="flex items-start gap-3">
-                          <Clock className="h-5 w-5 text-maroon-600 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <div className="text-sm font-medium text-gray-600 mb-1">Working Hours</div>
-                            <div className="text-gray-900">{info.hours}</div>
-                          </div>
-                        </div>
+                        </div>                        
                       </div>
                     </CardContent>
                   </Card>
