@@ -67,8 +67,7 @@ export const getColleges = async (): Promise<College[]> => {
 
 export const getCollege = async (id: string): Promise<College> => {
   try {
-    const response = await axios.get(`${API_URL}/${id}`);
-    console.log(response.data);
+    const response = await axios.get(`${API_URL}/${id}`); 
     return cleanCollegeData(response.data);
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
@@ -81,14 +80,12 @@ export const getCollege = async (id: string): Promise<College> => {
 
 export const getCollegeByName = async (short: string): Promise<College> => {
   try {
-    const response = await axios.get(`${API_URL}/short/${short}`);
-    console.log(response.data);
+    const response = await axios.get(`${API_URL}/short/${short}`); 
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       throw new Error(error.response.data.message);
-    }
-    console.log(error);
+    } 
     throw new Error('Failed to fetch college');
   }
 };
@@ -148,8 +145,6 @@ function cleanCollegeData(data)  {
   }
 
   // Remove unnecessary fields like '__v'
-  delete cleanedData.__v;
-
-  console.log(cleanedData);
+  delete cleanedData.__v; 
   return cleanedData;
 }

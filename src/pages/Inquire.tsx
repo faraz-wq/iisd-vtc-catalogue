@@ -38,8 +38,7 @@ import { College, getColleges, Program } from "@/services/collegeService";
 import axios from "axios";
 import { toast } from "sonner";
 
-const API_URL = import.meta.env.VITE_API_URL;
-console.log(API_URL);
+const API_URL = import.meta.env.VITE_API_URL; 
 
 type InquiryFormData = {
   name: string;
@@ -103,8 +102,7 @@ const InquireForm = () => {
         "Inquiry Submitted Successfully" +
           "Our team will contact you within 24-48 hours."
       );
-
-      console.log("Server response:", response.data);
+ 
     } catch (error) {
       // Show error toast
       toast.error(
@@ -303,8 +301,6 @@ const CallbackForm = () => {
       toast.success(
         "Your callback request has been submitted successfully. Our team will contact you shortly."
       );
-
-      console.log("Server response:", response.data);
 
       // Reset the form after successful submission
       setFormData({

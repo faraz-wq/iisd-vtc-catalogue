@@ -38,9 +38,7 @@ const CallbackForm = () => {
       // Show success toast notification
       toast.success(
         "Your callback request has been submitted successfully. Our team will contact you shortly."
-      );
-  
-      console.log("Server response:", response.data);
+      ); 
   
       // Reset the form fields after successful submission
       setFormData({

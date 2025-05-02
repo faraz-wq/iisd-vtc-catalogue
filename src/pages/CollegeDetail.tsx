@@ -30,27 +30,17 @@ const CollegeDetail = () => {
     const fetchCollege = async () => {
       try {
         setLoading(true);
-        const fetchedCollege = await getCollegeByName(collegeId);
-        console.log("Fetched college data from API:", fetchedCollege); // Debugging API response
+        const fetchedCollege = await getCollegeByName(collegeId); 
         setCollege(fetchedCollege);
         setError(null);
-      } catch (err) {
-        console.log(err);
+      } catch (err) { 
         setError("Failed to fetch college details. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
     fetchCollege();
-  }, [collegeId]); // Removed `college` from dependency array to avoid infinite loop
-
-  // Add a separate useEffect to log state changes
-  useEffect(() => {
-    console.log("college state updated:", college);
-  }, [college]);
-
-  // Log during render
-  console.log("college state during render:", college);
+  }, [collegeId]);  
 
   // Handle loading state
   if (loading) {
