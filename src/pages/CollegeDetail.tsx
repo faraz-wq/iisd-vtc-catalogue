@@ -30,17 +30,38 @@ const CollegeDetail = () => {
     const fetchCollege = async () => {
       try {
         setLoading(true);
-        const fetchedCollege = await getCollegeByName(collegeId); 
+        const fetchedCollege = await getCollegeByName(collegeId);
+        console.log("Fetched college data from API:", fetchedCollege);
+        if (
+          fetchedCollege?.contact &&
+          typeof fetchedCollege.contact === "string"
+        ) {
+          try {
+            fetchedCollege.contact = JSON.parse(fetchedCollege.contact);
+          } catch (e) {
+            console.error("Failed to parse contact JSON:", e);
+            fetchedCollege.contact = {};
+          }
+        }
         setCollege(fetchedCollege);
         setError(null);
-      } catch (err) { 
+      } catch (err) {
+        console.log(err);
         setError("Failed to fetch college details. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
     fetchCollege();
-  }, [collegeId]);  
+  }, [collegeId]); // Removed `college` from dependency array to avoid infinite loop
+
+  // Add a separate useEffect to log state changes
+  useEffect(() => {
+    console.log("college state updated:", college);
+  }, [college]);
+
+  // Log during render
+  console.log("college state during render:", college);
 
   // Handle loading state
   if (loading) {
@@ -81,13 +102,21 @@ const CollegeDetail = () => {
     );
   }
 
+  const isValidBanner =
+    typeof college.banner === "string" && college.banner.trim() !== "";
+  const bannerUrl = isValidBanner
+    ? college.banner
+    : "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop";
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       {/* Banner and College Info */}
       <div
-        className="relative h-64 md:h-80 bg-cover bg-center"
-        style={{ backgroundImage: `url(${college.banner})` }}
+          className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat bg-gray-200"
+          style={{
+            backgroundImage: `url(${bannerUrl}), linear-gradient(to bottom, #e5e7eb, #e5e7eb)`
+          }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="absolute inset-0 flex items-center">
@@ -95,9 +124,10 @@ const CollegeDetail = () => {
             <div className="flex flex-col md:flex-row items-center md:items-end space-y-4 md:space-y-0 md:space-x-6">
               <div className="bg-white p-2 rounded-lg shadow-md">
                 <img
-                  src={college.logo}
+                  src={college.logo || "/fallback-logo.jpg"}
                   alt={college.name}
                   className="w-24 h-24 object-cover rounded"
+                  onError={(e) => (e.currentTarget.src = "/fallback-logo.jpg")}
                 />
               </div>
               <div className="text-white text-center md:text-left">
@@ -462,16 +492,16 @@ const CollegeDetail = () => {
                     <div className="rounded-lg overflow-hidden h-64">
                       {/* This would typically be a Google Map - using a placeholder image */}
                       <iframe
-                          loading="lazy"
-                          src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                            college.name + college.contact.address
-                          )}&output=embed`}
-                          width="100%"
-                          height="450"
-                          style={{ border: "0" }}
-                          allowFullScreen
-                          title="College Location on Google Maps"
-                        ></iframe>
+                        loading="lazy"
+                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                          college.name + college.contact.address
+                        )}&output=embed`}
+                        width="100%"
+                        height="450"
+                        style={{ border: "0" }}
+                        allowFullScreen
+                        title="College Location on Google Maps"
+                      ></iframe>
                     </div>
                   </div>
                 </CardContent>
