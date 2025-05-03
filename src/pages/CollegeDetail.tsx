@@ -17,6 +17,9 @@ import {
   Check,
 } from "lucide-react";
 import { College, getCollegeByName } from "@/services/collegeService";
+import Gallery from "@/components/gallery/Gallery";
+import { galleryApi } from "@/services/galleryService";
+import { GalleryImage } from "@/types/gallery";
 
 const CollegeDetail = () => {
   const { collegeId } = useParams<{ collegeId: string }>();
@@ -24,6 +27,27 @@ const CollegeDetail = () => {
   const [college, setCollege] = useState<College | null>(null); // State to hold college data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState<string | null>(null); // Error state
+  const [images, setImages] = useState<GalleryImage[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filterType, setFilterType] = useState<"category" | "tag">(
+    "category"
+  );
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      setIsLoading(true);
+      try {
+        const response = await galleryApi.getImages();
+        setImages(response.data);
+      } catch (error) {
+        console.error("Failed to fetch gallery images:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   useEffect(() => {
     // Fetch college data dynamically based on the `collegeId`
@@ -113,10 +137,10 @@ const CollegeDetail = () => {
       <Navbar />
       {/* Banner and College Info */}
       <div
-          className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat bg-gray-200"
-          style={{
-            backgroundImage: `url(${bannerUrl}), linear-gradient(to bottom, #e5e7eb, #e5e7eb)`
-          }}
+        className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat bg-gray-200"
+        style={{
+          backgroundImage: `url(${bannerUrl}), linear-gradient(to bottom, #e5e7eb, #e5e7eb)`,
+        }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="absolute inset-0 flex items-center">
@@ -174,6 +198,12 @@ const CollegeDetail = () => {
                 className="px-4 py-2 text-sm md:text-base"
               >
                 Faculty
+              </TabsTrigger>
+              <TabsTrigger
+                value="gallery"
+                className="px-4 py-2 text-sm md:text-base"
+              >
+                Gallery
               </TabsTrigger>
               <TabsTrigger
                 value="contact"
@@ -436,6 +466,16 @@ const CollegeDetail = () => {
                   )}
                 </CardContent>
               </Card>
+            </TabsContent>
+            <TabsContent value="gallery" className="space-y-6">
+              <Gallery
+                images={images}
+                title={''}
+                description={`Life at ${college.name}`}
+                columns={3}
+                filterType={filterType}
+                filters={false}
+              />
             </TabsContent>
             {/* Contact Tab */}
             <TabsContent value="contact" className="space-y-6">

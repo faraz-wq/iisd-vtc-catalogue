@@ -17,6 +17,7 @@ export interface GalleryImage {
     description?: string;
     categories?: string[];
     columns?: number;
+    filters: boolean;
     className?: string;
     filterType?: 'category' | 'college' | 'tag';
   }

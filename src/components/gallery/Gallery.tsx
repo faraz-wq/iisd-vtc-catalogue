@@ -12,6 +12,7 @@ const Gallery: React.FC<GalleryProps> = ({
   images: initialImages,
   title = "Campus Gallery",
   description,
+  filters = true,
   categories: propCategories,
   columns = 3,
   className,
@@ -93,12 +94,12 @@ const Gallery: React.FC<GalleryProps> = ({
           </p>
         )}
         
-        <GalleryFilters 
+        {filters && <GalleryFilters 
           filterType={filterType}
           activeFilter={activeFilter}
           onChange={setActiveFilter}
           className="mb-8"
-        />
+        />}
 
         {isLoading ? (
           <div 

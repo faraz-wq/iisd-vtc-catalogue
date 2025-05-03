@@ -81,7 +81,7 @@ export const getCollege = async (id: string): Promise<College> => {
 export const getCollegeByName = async (short: string): Promise<College> => {
   try {
     const response = await axios.get(`${API_URL}/short/${short}`); 
-    return response.data;
+    return cleanCollegeData(response.data);
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       throw new Error(error.response.data.message);
