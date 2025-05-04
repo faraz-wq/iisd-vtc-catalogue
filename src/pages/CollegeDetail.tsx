@@ -29,33 +29,15 @@ const CollegeDetail = () => {
   const [error, setError] = useState<string | null>(null); // Error state
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filterType, setFilterType] = useState<"category" | "tag">(
-    "category"
-  );
+  const [filterType, setFilterType] = useState<"category" | "tag">("category");
 
   useEffect(() => {
-    const fetchImages = async () => {
-      setIsLoading(true);
-      try {
-        const response = await galleryApi.getImages();
-        setImages(response.data);
-      } catch (error) {
-        console.error("Failed to fetch gallery images:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  useEffect(() => {
-    // Fetch college data dynamically based on the `collegeId`
     const fetchCollege = async () => {
       try {
         setLoading(true);
         const fetchedCollege = await getCollegeByName(collegeId);
         console.log("Fetched college data from API:", fetchedCollege);
+  
         if (
           fetchedCollege?.contact &&
           typeof fetchedCollege.contact === "string"
@@ -67,18 +49,27 @@ const CollegeDetail = () => {
             fetchedCollege.contact = {};
           }
         }
+  
         setCollege(fetchedCollege);
+  
+        if (!fetchedCollege?._id) {
+          throw new Error("College ID not found");
+        }
+  
+        const response = await galleryApi.getImageByCollege(fetchedCollege._id);
+        console.log("imag", response);
+        setImages(response.data);
         setError(null);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         setError("Failed to fetch college details. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
+  
     fetchCollege();
-  }, [collegeId]); // Removed `college` from dependency array to avoid infinite loop
-
+  }, [collegeId]);
   // Add a separate useEffect to log state changes
   useEffect(() => {
     console.log("college state updated:", college);
@@ -92,7 +83,7 @@ const CollegeDetail = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center">
+        <main className="flex-grow flex items-center mt-32 justify-center">
           <p className="text-gray-600">Loading college details...</p>
         </main>
         <Footer />
@@ -105,7 +96,7 @@ const CollegeDetail = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center">
+        <main className="flex-grow flex mt-32 items-center justify-center">
           <div className="text-center p-8">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
               College Not Found
@@ -470,7 +461,7 @@ const CollegeDetail = () => {
             <TabsContent value="gallery" className="space-y-6">
               <Gallery
                 images={images}
-                title={''}
+                title={""}
                 description={`Life at ${college.name}`}
                 columns={3}
                 filterType={filterType}

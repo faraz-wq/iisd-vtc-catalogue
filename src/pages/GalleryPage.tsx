@@ -46,7 +46,6 @@ const GalleryPage = () => {
           description="Browse through images of our campus life, academic facilities, and student activities."
           columns={3}
           filterType={filterType}
-          filters
         />
       </main>
 

@@ -144,8 +144,8 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
                 <span>Colleges: </span>
               </div>
               {image.colleges.map(college => (
-                <Badge key={college} variant="outline" className="text-xs text-white/70 bg-transparent border-white/30">
-                  {college}
+                <Badge key={college._id} variant="outline" className="text-xs text-white/70 bg-transparent border-white/30">
+                  {college.name}
                 </Badge>
               ))}
             </div>

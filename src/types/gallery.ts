@@ -1,16 +1,23 @@
-export interface GalleryImage {
-    id: string;
-    src: string;
-    alt: string;
-    category: string;
-    title: string;
-    description?: string;
-    width: number;
-    height: number;
-    colleges: string[];
-    tags: string[];
-  }
-  
+// src/types/gallery.ts
+export type College = {
+  _id: string;
+  name: string;
+  shortName?: string;
+};
+
+export type GalleryImage = {
+  _id?: string;
+  src: string;
+  alt: string;
+  category: string;
+  title: string;
+  description: string;
+  colleges: College[] | string[];
+  tags: string[];
+  createdAt?: string;
+  updatedAt?: string;
+};
+
   export interface GalleryProps {
     images: GalleryImage[];
     title?: string;

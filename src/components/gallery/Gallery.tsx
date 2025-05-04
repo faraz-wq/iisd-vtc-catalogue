@@ -3,23 +3,19 @@ import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { GalleryProps, GalleryImage } from "@/types/gallery";
 import { cn } from "@/lib/utils";
 import GalleryItem from "./GalleryItem";
-import GalleryFilters from "./GalleryFilters";
 import GalleryLightbox from "./GalleryLightbox";
 import { galleryApi } from "@/services/galleryService";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const Gallery: React.FC<GalleryProps> = ({
-  images: initialImages,
+  images,
   title = "Campus Gallery",
   description,
-  filters = true,
   categories: propCategories,
   columns = 3,
   className,
   filterType = 'category'
 }) => {
-  const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [images, setImages] = useState<GalleryImage[]>(initialImages || []);
   const [isLoading, setIsLoading] = useState(false);
   const [lightbox, setLightbox] = useState<{
     isOpen: boolean;
@@ -28,23 +24,6 @@ const Gallery: React.FC<GalleryProps> = ({
     isOpen: false,
     currentIndex: 0,
   });
-
-  // Fetch images when filter changes
-  useEffect(() => {
-    const fetchImages = async () => {
-      setIsLoading(true);
-      try {
-        const response = await galleryApi.filterImages(filterType, activeFilter);
-        setImages(response.data);
-      } catch (error) {
-        console.error("Failed to fetch images:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, [activeFilter, filterType]);
 
   // Open lightbox at specific index
   const openLightbox = useCallback((index: number) => {
@@ -93,13 +72,7 @@ const Gallery: React.FC<GalleryProps> = ({
             {description}
           </p>
         )}
-        
-        {filters && <GalleryFilters 
-          filterType={filterType}
-          activeFilter={activeFilter}
-          onChange={setActiveFilter}
-          className="mb-8"
-        />}
+
 
         {isLoading ? (
           <div 
@@ -139,7 +112,7 @@ const Gallery: React.FC<GalleryProps> = ({
           >
             {images.map((image, index) => (
               <GalleryItem 
-                key={image.id} 
+                key={image._id} 
                 image={image} 
                 onClick={() => openLightbox(index)}
               />

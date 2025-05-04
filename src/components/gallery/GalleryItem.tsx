@@ -73,8 +73,8 @@ const GalleryItem: React.FC<GalleryItemProps> = ({
           {image.colleges.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {image.colleges.slice(0, 2).map(college => (
-                <Badge key={college} variant="outline" className="text-xs">
-                  {college}
+                <Badge key={college._id} variant="outline" className="text-xs">
+                  {college.name}
                 </Badge>
               ))}
               {image.colleges.length > 2 && (
