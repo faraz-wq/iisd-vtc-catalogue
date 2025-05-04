@@ -6,7 +6,7 @@ import { Book, Award, Clock, Heart, Users, Building, BookOpen, GraduationCap } f
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      
       
       {/* Header Section */}
       <section className="pt-32 pb-16 bg-gradient-to-r from-maroon-600 to-maroon-800 text-white">
@@ -301,7 +301,7 @@ const About = () => {
         </div>
       </section>
       
-      <Footer />
+      
     </div>
   );
 };

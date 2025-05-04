@@ -1,66 +1,86 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from "@/lib/utils";
-
-const NAV_ITEMS = [
-  {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'About IISD',
-    href: '/about',
-  },
-  {
-    name: 'Our Colleges',
-    href: '/colleges',
-    children: [
-      { name: 'Chatrapati Shivaji Maharaj Paramedical & IT College', href: '/colleges/csmpic' },
-      { name: 'Royal College', href: '/colleges/royal' },
-      { name: 'N.H. Paramedical and IT College', href: '/colleges/nhpic' },
-      { name: 'Nashik Paramedical & IT College', href: '/colleges/npic' },
-      { name: 'Millat English Medium High School & Jr. College, New Nashik', href: '/colleges/memhs' },
-      { name: 'Nashik Super-30 (NEET/IIT-JEE Academy)', href: '/colleges/ns30' },      
-      { name: 'View All', href: '/colleges'},
-    ],
-  },
-  {
-    name: 'Programs & Courses',
-    href: '/programs',
-  },
-  {
-    name: 'Admissions',
-    href: '/inquire',
-  }, 
-  {
-    name: 'Contact Us',
-    href: '/contact',
-  },
-];
+import axios from 'axios';
 
 const Navbar = () => {
+  const [collegeData, setCollegeData] = useState<{ name: string; href: string }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+    const fetchColleges = async () => {
+      try {
+        const response =await axios.get(`${import.meta.env.VITE_API_URL}/colleges/nav`);
+        if (!response) throw new Error('Failed to fetch college data');
+
+        const data = await response.data;
+
+        // Transform data: { name, shortName } → { name, href }
+        const transformed = data.map((college: { name: string; shortName: string }) => ({
+          name: college.name,
+          href: `/colleges/${college.shortName.toLowerCase()}`,
+        }));
+
+        // Add "View All" link
+        transformed.push({ name: 'View All', href: '/colleges' });
+
+        setCollegeData(transformed);
+      } catch (err) {
+        console.error('Error fetching college data:', err);
+        setError(err as Error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    fetchColleges();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
+
+  // Define NAV_ITEMS inside the component to access dynamic collegeData
+  const NAV_ITEMS = [
+    {
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'Our Colleges',
+      href: '/colleges',
+      children: collegeData,
+    },
+    {
+      name: 'Programs & Courses',
+      href: '/programs',
+    },
+    {
+      name: 'Gallery',
+      href: '/gallery',
+    },
+    {
+      name: 'About IISD',
+      href: '/about',
+    },
+    {
+      name: 'Contact Us',
+      href: '/contact',
+    },
+  ];
 
   return (
     <nav
@@ -75,7 +95,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center justify-between h-full">
             <a href="/" className="flex-shrink-0 flex items-center h-full">
-              <img src='favicon.ico' className='rounded-3xl h-full p-2'/>
+              <img src='favicon.ico' className='rounded-3xl h-full p-2' alt="Logo" />
               <div className={cn(
                 "h-10 w-auto flex items-center font-display font-bold text-xl",
                 isScrolled ? "text-maroon-600" : "text-white"
@@ -85,7 +105,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Desktop navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-1">
             {NAV_ITEMS.map((item) => (
               <div key={item.name} className="relative group">
@@ -143,7 +163,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -163,7 +183,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <div
         className={cn(
           "md:hidden transition-all duration-300 overflow-hidden",

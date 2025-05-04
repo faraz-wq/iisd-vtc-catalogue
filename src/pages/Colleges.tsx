@@ -28,13 +28,13 @@ const Colleges = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        
         <main className="flex-grow py-12 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-gray-700">Loading colleges...</p>
           </div>
         </main>
-        <Footer />
+        
       </div>
     );
   }
@@ -42,20 +42,20 @@ const Colleges = () => {
   if (error) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        
         <main className="flex-grow py-12 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-red-600">{error}</p>
           </div>
         </main>
-        <Footer />
+        
       </div>
     );
   }
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      
 
       <div
         className="relative h-64 md:h-80 bg-cover bg-center"
@@ -118,7 +118,7 @@ const Colleges = () => {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 };

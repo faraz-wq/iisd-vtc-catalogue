@@ -13,8 +13,6 @@ import { ArrowRight, BookOpen, GraduationCap, Users, Building } from "lucide-rea
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <Navbar />
       
       {/* Hero Section */}
       <Hero />
@@ -169,8 +167,6 @@ const Index = () => {
       {/* Callback Form */}
       <CallbackForm />
       
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

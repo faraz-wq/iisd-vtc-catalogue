@@ -123,7 +123,7 @@ const Contact = () => {
   
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      
       
       {/* Header Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-maroon-600 to-maroon-800 text-white">
@@ -409,7 +409,7 @@ const Contact = () => {
         </div>
       </section>
       
-      <Footer />
+      
     </div>
   );
 };

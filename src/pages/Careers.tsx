@@ -320,7 +320,7 @@ const CareerOpportunities = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      
       
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
@@ -832,7 +832,7 @@ const CareerOpportunities = () => {
         </div>
       </section>
       
-      <Footer />
+      
     </div>
   );
 };

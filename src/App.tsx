@@ -1,9 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
@@ -14,6 +15,7 @@ import CollegeDetail from "./pages/CollegeDetail";
 import Careers from "./pages/Careers";
 import Colleges from "./pages/Colleges";
 import GalleryPage from "./pages/GalleryPage";
+import Layout from "./components/Layout"; // Import Layout
 
 const queryClient = new QueryClient();
 
@@ -24,16 +26,22 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/inquire" element={<Inquire />} />
-          <Route path="/colleges/:collegeId" element={<CollegeDetail />} />
-          <Route path="/colleges/" element={<Colleges />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/gallery" element={<GalleryPage/>} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Layout-wrapped routes */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Index />} />
+            <Route path="about" element={<About />} />
+            <Route path="programs" element={<Programs />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="inquire" element={<Inquire />} />
+            <Route path="careers" element={<Careers />} />
+            <Route path="gallery" element={<GalleryPage />} />
+
+            {/* Colleges routes: static before dynamic */}
+            <Route path="colleges" element={<Colleges />} />
+            <Route path="colleges/:collegeId" element={<CollegeDetail />} />
+          </Route>
+
+          {/* Catch-all for 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

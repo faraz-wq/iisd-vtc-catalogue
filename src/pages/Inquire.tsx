@@ -388,7 +388,7 @@ const CallbackForm = () => {
 const Inquire = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      
 
       {/* Header Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
@@ -751,7 +751,7 @@ const Inquire = () => {
         </div>
       </section>
 
-      <Footer />
+      
     </div>
   );
 };

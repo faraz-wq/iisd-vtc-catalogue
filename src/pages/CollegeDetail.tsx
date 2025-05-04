@@ -82,11 +82,11 @@ const CollegeDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        
         <main className="flex-grow flex items-center mt-32 justify-center">
           <p className="text-gray-600">Loading college details...</p>
         </main>
-        <Footer />
+        
       </div>
     );
   }
@@ -95,7 +95,7 @@ const CollegeDetail = () => {
   if (error || !college) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        
         <main className="flex-grow flex mt-32 items-center justify-center">
           <div className="text-center p-8">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
@@ -112,7 +112,7 @@ const CollegeDetail = () => {
             </a>
           </div>
         </main>
-        <Footer />
+        
       </div>
     );
   }
@@ -125,7 +125,7 @@ const CollegeDetail = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      
       {/* Banner and College Info */}
       <div
         className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat bg-gray-200"
@@ -541,7 +541,7 @@ const CollegeDetail = () => {
           </Tabs>
         </div>
       </main>
-      <Footer />
+      
     </div>
   );
 };

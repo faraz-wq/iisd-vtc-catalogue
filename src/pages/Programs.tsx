@@ -148,7 +148,7 @@ const Programs = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      
       {/* Header Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -292,7 +292,7 @@ const Programs = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      
     </div>
   );
 };
