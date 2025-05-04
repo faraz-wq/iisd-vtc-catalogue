@@ -19,10 +19,10 @@ const Index = () => {
       {/* SEO Tags */}
       <Helmet>
         {/* Primary Meta Tags */}
-        <title>Indian Institute of Skill Development (IISD) - Top Career-Focused College in India</title>
+        <title>Indian Institute of Skill Dev. & Vocational Training Center</title>
         <meta
           name="description"
-          content="IISD offers industry-aligned programs across 6 campuses with 98% placement success. Choose from 50+ career-oriented courses designed by experts. Apply now!"
+          content="IISD offers industry-aligned programs across 4 campuses with 98% placement success. Choose from 50+ career-oriented courses designed by experts. Apply now!"
         />
         <meta
           name="keywords"
@@ -57,7 +57,7 @@ const Index = () => {
         <meta name="twitter:creator" content="@IISD_Official" />
 
         {/* Canonical Link */}
-        <link rel="canonical" href="https://www.iisd.edu.in/" />
+        <link rel="canonical" href="https://www.iisdvtc.in/" />
 
         {/* Schema Markup */}
         <script type="application/ld+json">
@@ -311,3 +311,4 @@ const Index = () => {
 };
 
 export default Index;
+
