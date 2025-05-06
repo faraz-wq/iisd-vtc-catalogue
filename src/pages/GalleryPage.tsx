@@ -4,8 +4,8 @@ import { GalleryImage } from "@/types/gallery";
 import { galleryApi } from "@/services/galleryService";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Gallery from "@/components/gallery/Gallery";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
+
 
 const GalleryPage = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);

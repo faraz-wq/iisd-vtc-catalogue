@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
+
 import { MapPin } from "lucide-react"; // Adjust the import path as needed
 import { College, getColleges } from "@/services/collegeService";
 

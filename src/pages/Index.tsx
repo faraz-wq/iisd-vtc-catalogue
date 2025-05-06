@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet"; // For SEO
-import Navbar from "@/components/Navbar";
+
 import Hero from "@/components/Hero";
 import ProgramsSection from "@/components/ProgramsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsEventsSection from "@/components/NewsEventsSection";
-import CallbackForm from "@/components/CallbackForm";
-import Footer from "@/components/Footer";
+import CallbackForm from "@/components/CallbackForm"; 
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, BookOpen, GraduationCap, Users, Building } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  GraduationCap,
+  Users,
+  Building,
+} from "lucide-react";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,9 +22,14 @@ const Index = () => {
   return (
     <>
       {/* SEO Tags */}
+      <head>
+        <link rel="canonical" href="https://www.iisdvtc.in/" />
+      </head>
       <Helmet>
         {/* Primary Meta Tags */}
-        <title>Indian Institute of Skill Dev. & Vocational Training Center</title>
+        <title>
+          Indian Institute of Skill Dev. & Vocational Training Center
+        </title>
         <meta
           name="description"
           content="IISD offers industry-aligned programs across 4 campuses with 98% placement success. Choose from 50+ career-oriented courses designed by experts. Apply now!"
@@ -33,26 +43,38 @@ const Index = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.iisd.edu.in/" />
-        <meta property="og:title" content="Indian Institute of Skill Development (IISD)" />
+        <meta property="og:url" content="https://www.iisdvtc.in/" />
+        <meta
+          property="og:title"
+          content="Indian Institute of Skill Dev. & Vocational Train. Center"
+        />
         <meta
           property="og:description"
           content="India's leading institute for career-focused education with modern facilities, expert faculty, and 98% placement rate. Explore 50+ industry-relevant programs."
         />
         <meta property="og:image" content="/images/social-preview.jpg" />
-        <meta property="og:image:alt" content="IISD Campus with students and modern facilities" />
+        <meta
+          property="og:image:alt"
+          content="IISD Campus with students and modern facilities"
+        />
         <meta property="og:site_name" content="IISD" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://www.iisd.edu.in/" />
-        <meta name="twitter:title" content="Indian Institute of Skill Development (IISD)" />
+        <meta name="twitter:url" content="https://www.iisdvtc.in/" />
+        <meta
+          name="twitter:title"
+          content="Indian Institute of Skill Dev. & Vocational Train. Center"
+        />
         <meta
           name="twitter:description"
           content="Transform your career with IISD's industry-aligned programs. 98% placement rate across 6 state-of-the-art campuses."
         />
         <meta name="twitter:image" content="/images/social-preview.jpg" />
-        <meta name="twitter:image:alt" content="IISD Campus with students and modern facilities" />
+        <meta
+          name="twitter:image:alt"
+          content="IISD Campus with students and modern facilities"
+        />
         <meta name="twitter:site" content="@IISD_Official" />
         <meta name="twitter:creator" content="@IISD_Official" />
 
@@ -65,9 +87,9 @@ const Index = () => {
             {
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              "name": "Indian Institute of Skill Development",
+              "name": "Indian Institute of Skill Dev. & Vocational Train. Center",
               "alternateName": "IISD",
-              "url": "https://www.iisd.edu.in/",
+              "url": "https://www.iisdvtc.in/",
               "logo": "/images/logo.png",
               "sameAs": [
                 "https://www.facebook.com/IISD",
@@ -122,8 +144,15 @@ const Index = () => {
                 itemType="https://schema.org/StatisticalPopulation"
               >
                 <GraduationCap className="h-10 w-10 mx-auto mb-4 text-maroon-600" />
-                <div className="text-4xl font-bold text-gray-800" itemProp="numMembers">
-                  <AnimatedCounter value={15000} suffix="+" className="text-3xl md:text-4xl font-bold" />
+                <div
+                  className="text-4xl font-bold text-gray-800"
+                  itemProp="numMembers"
+                >
+                  <AnimatedCounter
+                    value={15000}
+                    suffix="+"
+                    className="text-3xl md:text-4xl font-bold"
+                  />
                 </div>
                 <p className="mt-2 text-gray-600 font-medium">Graduates</p>
               </div>
@@ -134,8 +163,15 @@ const Index = () => {
                 itemType="https://schema.org/StatisticalPopulation"
               >
                 <BookOpen className="h-10 w-10 mx-auto mb-4 text-college-blue" />
-                <div className="text-4xl font-bold text-gray-800" itemProp="numMembers">
-                  <AnimatedCounter value={50} suffix="+" className="text-3xl md:text-4xl font-bold" />
+                <div
+                  className="text-4xl font-bold text-gray-800"
+                  itemProp="numMembers"
+                >
+                  <AnimatedCounter
+                    value={50}
+                    suffix="+"
+                    className="text-3xl md:text-4xl font-bold"
+                  />
                 </div>
                 <p className="mt-2 text-gray-600 font-medium">Programs</p>
               </div>
@@ -146,8 +182,14 @@ const Index = () => {
                 itemType="https://schema.org/StatisticalPopulation"
               >
                 <Building className="h-10 w-10 mx-auto mb-4 text-college-green" />
-                <div className="text-4xl font-bold text-gray-800" itemProp="numMembers">
-                  <AnimatedCounter value={6} className="text-3xl md:text-4xl font-bold" />
+                <div
+                  className="text-4xl font-bold text-gray-800"
+                  itemProp="numMembers"
+                >
+                  <AnimatedCounter
+                    value={6}
+                    className="text-3xl md:text-4xl font-bold"
+                  />
                 </div>
                 <p className="mt-2 text-gray-600 font-medium">Campuses</p>
               </div>
@@ -158,8 +200,15 @@ const Index = () => {
                 itemType="https://schema.org/StatisticalPopulation"
               >
                 <Users className="h-10 w-10 mx-auto mb-4 text-college-gold" />
-                <div className="text-4xl font-bold text-gray-800" itemProp="numMembers">
-                  <AnimatedCounter value={98} suffix="%" className="text-3xl md:text-4xl font-bold" />
+                <div
+                  className="text-4xl font-bold text-gray-800"
+                  itemProp="numMembers"
+                >
+                  <AnimatedCounter
+                    value={98}
+                    suffix="%"
+                    className="text-3xl md:text-4xl font-bold"
+                  />
                 </div>
                 <p className="mt-2 text-gray-600 font-medium">Placement Rate</p>
               </div>
@@ -171,59 +220,108 @@ const Index = () => {
         <section className="py-20" aria-labelledby="why-choose-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 id="why-choose-heading" className="text-3xl md:text-4xl font-bold text-gray-900">
+              <h2
+                id="why-choose-heading"
+                className="text-3xl md:text-4xl font-bold text-gray-900"
+              >
                 Why Choose IISD?
               </h2>
               <div className="w-24 h-1 bg-maroon-600 mx-auto my-4"></div>
               <p className="max-w-3xl mx-auto text-lg text-gray-600">
-                We're dedicated to providing quality education and career-focused training across our institutes
+                We're dedicated to providing quality education and
+                career-focused training across our institutes
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="overflow-hidden border-gray-200 transition-all hover:shadow-lg" itemScope itemType="https://schema.org/EducationalOrganization">
+              <Card
+                className="overflow-hidden border-gray-200 transition-all hover:shadow-lg"
+                itemScope
+                itemType="https://schema.org/EducationalOrganization"
+              >
                 <div className="h-3 bg-maroon-600"></div>
                 <CardContent className="p-6">
                   <div className="h-14 w-14 rounded-full bg-maroon-50 flex items-center justify-center mb-6">
                     <GraduationCap className="h-8 w-8 text-maroon-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900" itemProp="name">Industry-Relevant Programs</h3>
+                  <h3
+                    className="text-xl font-bold mb-3 text-gray-900"
+                    itemProp="name"
+                  >
+                    Industry-Relevant Programs
+                  </h3>
                   <p className="text-gray-600 mb-4" itemProp="description">
-                    Our curricula are designed with industry input to ensure you gain the skills employers are looking for.
+                    Our curricula are designed with industry input to ensure you
+                    gain the skills employers are looking for.
                   </p>
-                  <a href="/programs" className="inline-flex items-center text-maroon-600 font-medium hover:text-maroon-700" itemProp="url" aria-label="Explore Programs">
+                  <a
+                    href="/programs"
+                    className="inline-flex items-center text-maroon-600 font-medium hover:text-maroon-700"
+                    itemProp="url"
+                    aria-label="Explore Programs"
+                  >
                     Explore Programs <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="overflow-hidden border-gray-200 transition-all hover:shadow-lg" itemScope itemType="https://schema.org/EducationalOrganization">
+              <Card
+                className="overflow-hidden border-gray-200 transition-all hover:shadow-lg"
+                itemScope
+                itemType="https://schema.org/EducationalOrganization"
+              >
                 <div className="h-3 bg-college-blue"></div>
                 <CardContent className="p-6">
                   <div className="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center mb-6">
                     <Users className="h-8 w-8 text-college-blue" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900" itemProp="name">Expert Faculty</h3>
+                  <h3
+                    className="text-xl font-bold mb-3 text-gray-900"
+                    itemProp="name"
+                  >
+                    Expert Faculty
+                  </h3>
                   <p className="text-gray-600 mb-4" itemProp="description">
-                    Learn from industry professionals and experienced educators who provide personalized guidance.
+                    Learn from industry professionals and experienced educators
+                    who provide personalized guidance.
                   </p>
-                  <a href="/about" className="inline-flex items-center text-college-blue font-medium hover:text-blue-700" itemProp="url" aria-label="Meet Our Faculty">
+                  <a
+                    href="/about"
+                    className="inline-flex items-center text-college-blue font-medium hover:text-blue-700"
+                    itemProp="url"
+                    aria-label="Meet Our Faculty"
+                  >
                     Meet Our Faculty <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="overflow-hidden border-gray-200 transition-all hover:shadow-lg" itemScope itemType="https://schema.org/EducationalOrganization">
+              <Card
+                className="overflow-hidden border-gray-200 transition-all hover:shadow-lg"
+                itemScope
+                itemType="https://schema.org/EducationalOrganization"
+              >
                 <div className="h-3 bg-college-green"></div>
                 <CardContent className="p-6">
                   <div className="h-14 w-14 rounded-full bg-green-50 flex items-center justify-center mb-6">
                     <Building className="h-8 w-8 text-college-green" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900" itemProp="name">State-of-the-Art Facilities</h3>
+                  <h3
+                    className="text-xl font-bold mb-3 text-gray-900"
+                    itemProp="name"
+                  >
+                    State-of-the-Art Facilities
+                  </h3>
                   <p className="text-gray-600 mb-4" itemProp="description">
-                    Our campuses feature modern laboratories, libraries, and practical training infrastructure.
+                    Our campuses feature modern laboratories, libraries, and
+                    practical training infrastructure.
                   </p>
-                  <a href="/colleges" className="inline-flex items-center text-college-green font-medium hover:text-green-700" itemProp="url" aria-label="View Our Campuses">
+                  <a
+                    href="/colleges"
+                    className="inline-flex items-center text-college-green font-medium hover:text-green-700"
+                    itemProp="url"
+                    aria-label="View Our Campuses"
+                  >
                     View Our Campuses <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </CardContent>
@@ -246,12 +344,16 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h2 id="admissions-heading" className="sr-only">Begin Your Journey with IISD</h2>
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">Begin Your Journey with IISD</h3>
+                <h2 id="admissions-heading" className="sr-only">
+                  Begin Your Journey with IISD
+                </h2>
+                <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                  Begin Your Journey with IISD
+                </h3>
                 <p className="text-lg text-white/90 mb-8">
-                  Join our community of learners and gain the skills, knowledge, and credentials
-                  to succeed in today's competitive job market. Applications for the upcoming
-                  academic year are now open.
+                  Join our community of learners and gain the skills, knowledge,
+                  and credentials to succeed in today's competitive job market.
+                  Applications for the upcoming academic year are now open.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -311,4 +413,3 @@ const Index = () => {
 };
 
 export default Index;
-

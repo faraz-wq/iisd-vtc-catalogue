@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";

@@ -1,6 +1,6 @@
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
+
 import { Book, Award, Clock, Heart, Users, Building, BookOpen, GraduationCap } from "lucide-react";
 
 const About = () => {
