@@ -170,13 +170,6 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Leader 1 */}
             <div className="text-center">
-              <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-lg">
-                <img 
-                  src="/placeholder.svg"
-                  alt="Dr. Rajesh Sharma - Director" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <h3 className="text-xl font-bold text-gray-900">Dr. Rajesh Sharma</h3>
               <p className="text-maroon-600 font-medium mb-3">Director</p>
               <p className="text-gray-600 text-sm max-w-xs mx-auto">
@@ -186,13 +179,6 @@ const About = () => {
             
             {/* Leader 2 */}
             <div className="text-center">
-              <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-lg">
-                <img 
-                  src="/placeholder.svg"
-                  alt="Prof. Priya Patel - Academic Dean" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <h3 className="text-xl font-bold text-gray-900">Prof. Priya Patel</h3>
               <p className="text-college-blue font-medium mb-3">Academic Dean</p>
               <p className="text-gray-600 text-sm max-w-xs mx-auto">
@@ -202,13 +188,6 @@ const About = () => {
             
             {/* Leader 3 */}
             <div className="text-center">
-              <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-white shadow-lg">
-                <img 
-                  src="/placeholder.svg"
-                  alt="Mr. Anil Deshmukh - Head of Operations" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <h3 className="text-xl font-bold text-gray-900">Mr. Anil Deshmukh</h3>
               <p className="text-college-green font-medium mb-3">Head of Operations</p>
               <p className="text-gray-600 text-sm max-w-xs mx-auto">

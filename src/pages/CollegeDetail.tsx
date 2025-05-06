@@ -428,13 +428,6 @@ const CollegeDetail = () => {
                       <div className="grid md:grid-cols-3 gap-6">
                         {college.faculty.map((faculty, index) => (
                           <div key={index} className="text-center">
-                            <div className="mb-3 mx-auto rounded-full overflow-hidden h-24 w-24 md:h-32 md:w-32 bg-gray-200">
-                              <img
-                                src={faculty.image}
-                                alt={faculty.name}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
                             <h3 className="font-bold text-gray-800">
                               {faculty.name}
                             </h3>
