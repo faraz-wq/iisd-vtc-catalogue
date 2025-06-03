@@ -448,7 +448,7 @@ export const COLLEGES = [
     "logo": "/NHPC Thane.jpg",
     "banner": "/NHPC Thane.jpg",
     "description": "N.H. Paramedical and IT College, founded in 2015, is committed to providing high-quality education in paramedical sciences and information technology. Our innovative teaching methodologies ensure that students are well-prepared for their future careers.",
-    "location": "Nagpur, Maharashtra",
+    "location": "Thane, Maharashtra",
     "contact": {
       "address": "NH English Academy, Asmita Enclave, Naya Nagar, Mira Road(E), Thane - 401107",
       "phone": "+91 98765 67890",

@@ -39,7 +39,7 @@ const COLLEGES = [
       { name: "Medical Lab Technician", description: "1-year program" },
       { name: "X-Ray Technician", description: "1-year program" }
     ],
-    location: "Nagpur, Maharashtra",
+    location: "Thane, Maharashtra",
     color: "college-green",
     href: "/colleges/nhpic"
   },
