@@ -11,8 +11,7 @@ import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Contact from "./pages/Contact";
 import Inquire from "./pages/Inquire";
-import CollegeDetail from "./pages/CollegeDetail";
-import Careers from "./pages/Careers";
+import CollegeDetail from "./pages/CollegeDetail"; 
 import Colleges from "./pages/Colleges";
 import GalleryPage from "./pages/GalleryPage";
 import Layout from "./components/Layout"; // Import Layout
@@ -32,8 +31,7 @@ const App = () => (
             <Route path="about" element={<About />} />
             <Route path="programs" element={<Programs />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="inquire" element={<Inquire />} />
-            <Route path="careers" element={<Careers />} />
+            <Route path="inquire" element={<Inquire />} /> 
             <Route path="gallery" element={<GalleryPage />} />
 
             {/* Colleges routes: static before dynamic */}
