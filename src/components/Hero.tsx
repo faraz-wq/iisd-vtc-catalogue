@@ -93,37 +93,6 @@ const SLIDES = [
     ],
     color: "from-indigo-600/70 to-indigo-800/70",
   },
-  {
-    id: 5,
-    title: "Nashik Super-30 (NEET/IIT-JEE Academy)",
-    description: "Top-notch preparation for NEET/IIT-JEE aspirants",
-    imageSrc:
-      "https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "Join Coaching",
-    ctaLink: "/colleges/nashiksuper30",
-    stats: [
-      { value: 95, label: "Success Rate" },
-      { value: 10, label: "Expert Faculty" },
-      { value: 500, label: "Students Trained" },
-    ],
-    color: "from-orange-600/70 to-orange-800/70",
-  },
-  {
-    id: 6,
-    title: "Nashik Paramedical & IT College",
-    description:
-      "Industry-aligned curriculum, state-of-the-art labs, and career support.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
-    ctaText: "Learn More",
-    ctaLink: "/colleges/npic",
-    stats: [
-      { value: 95, label: "Student Satisfaction" },
-      { value: 30, label: "Modern Facilities" },
-      { value: 20, label: "Industry Tie-ups" },
-    ],
-    color: "from-indigo-600/70 to-indigo-800/70",
-  },
 ];
 
 const Hero = () => {
