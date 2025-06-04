@@ -11,10 +11,11 @@ import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Contact from "./pages/Contact";
 import Inquire from "./pages/Inquire";
-import CollegeDetail from "./pages/CollegeDetail"; 
+import CollegeDetail from "./pages/CollegeDetail";
 import Colleges from "./pages/Colleges";
 import GalleryPage from "./pages/GalleryPage";
-import Layout from "./components/Layout"; // Import Layout
+import Layout from "./components/Layout";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -31,13 +32,14 @@ const App = () => (
             <Route path="about" element={<About />} />
             <Route path="programs" element={<Programs />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="inquire" element={<Inquire />} /> 
+            <Route path="inquire" element={<Inquire />} />
             <Route path="gallery" element={<GalleryPage />} />
-
             {/* Colleges routes: static before dynamic */}
             <Route path="colleges" element={<Colleges />} />
             <Route path="colleges/:collegeId" element={<CollegeDetail />} />
           </Route>
+
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           {/* Catch-all for 404 */}
           <Route path="*" element={<NotFound />} />
