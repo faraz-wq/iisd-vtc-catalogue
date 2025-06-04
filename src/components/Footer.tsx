@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="mb-6">
               <h2 className="text-3xl font-bold text-white mb-1">IISD</h2>
               <p className="text-gray-400">
-                Institute for Integrated Skill Development
+                Indian Institute of Skill Development and Training
               </p>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
@@ -211,7 +211,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="md:flex md:items-center md:justify-between">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} IISD - Institute for Integrated Skill
+              © {new Date().getFullYear()} IISD - Indian Institute of Skill
               Development. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -15,6 +15,9 @@ const Navbar = React.memo(() => {
   // Mobile menu & dropdown state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Ref for dropdown click-outside detection
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Fetch college data with React Query
   const {
@@ -47,6 +50,23 @@ const Navbar = React.memo(() => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   // Memoized NAV_ITEMS
@@ -123,11 +143,10 @@ const Navbar = React.memo(() => {
               IISD <span className="hidden sm:inline ml-1">Institute</span>
             </div>
           </a>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-1">
             {NAV_ITEMS.map(item => (
-              <div key={item.name} className="relative group">
+              <div key={item.name} className="relative group" ref={item.children ? dropdownRef : undefined}>
                 {item.children ? (
                   <button
                     onClick={() => toggleDropdown(item.name)}
@@ -158,7 +177,6 @@ const Navbar = React.memo(() => {
                     {item.name}
                   </button>
                 )}
-
                 {item.children && (
                   <div
                     className={cn(
@@ -190,7 +208,6 @@ const Navbar = React.memo(() => {
                 )}
               </div>
             ))}
-
             {/* Apply Now Button */}
             <button
               onClick={() => handleNavClick('/inquire')}
@@ -199,7 +216,6 @@ const Navbar = React.memo(() => {
               Apply Now
             </button>
           </div>
-
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
@@ -221,7 +237,6 @@ const Navbar = React.memo(() => {
           </div>
         </div>
       </div>
-
       {/* Mobile Menu */}
       <div
         className={cn(
@@ -231,7 +246,7 @@ const Navbar = React.memo(() => {
       >
         <div className="py-3 space-y-1 sm:px-3">
           {NAV_ITEMS.map(item => (
-            <div key={item.name}>
+            <div key={item.name} ref={item.children ? dropdownRef : undefined}>
               {item.children ? (
                 <div>
                   <button
@@ -246,7 +261,6 @@ const Navbar = React.memo(() => {
                       )}
                     />
                   </button>
-
                   <div
                     className={cn(
                       'transition-all duration-200 overflow-hidden bg-gray-50',
@@ -284,7 +298,6 @@ const Navbar = React.memo(() => {
               )}
             </div>
           ))}
-
           <div className="px-4 py-3">
             <button
               onClick={() => handleNavClick('/inquire')}

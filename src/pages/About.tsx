@@ -9,7 +9,7 @@ const About = () => {
       
       
       {/* Header Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-r from-maroon-600 to-maroon-800 text-white">
+      <section className="pt-24 pb-10 bg-gradient-to-r from-maroon-600 to-maroon-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -23,7 +23,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-xl transform rotate-3"></div>
               <img 
-                src="/placeholder.svg" 
+                src="/landing-page/shivajiclgpune.jpg" 
                 alt="IISD Campus" 
                 className="relative z-10 rounded-xl shadow-xl"
                 width={600}
@@ -214,7 +214,7 @@ const About = () => {
             <div className="bg-white p-6 rounded-xl text-center shadow-sm border border-gray-100">
               <div className="h-20 flex items-center justify-center mb-4">
                 <img 
-                  src="/placeholder.svg"
+                  src="/landing-page/msbtc.jpeg"
                   alt="Maharashtra State Board of Technical Education" 
                   className="max-h-full"
                 />
@@ -227,7 +227,7 @@ const About = () => {
             <div className="bg-white p-6 rounded-xl text-center shadow-sm border border-gray-100">
               <div className="h-20 flex items-center justify-center mb-4">
                 <img 
-                  src="/placeholder.svg"
+                  src="/landing-page/aicte.png"
                   alt="All India Council for Technical Education" 
                   className="max-h-full"
                 />
@@ -240,7 +240,7 @@ const About = () => {
             <div className="bg-white p-6 rounded-xl text-center shadow-sm border border-gray-100">
               <div className="h-20 flex items-center justify-center mb-4">
                 <img 
-                  src="/placeholder.svg"
+                  src="/landing-page/pci.jpg"
                   alt="Pharmacy Council of India" 
                   className="max-h-full"
                 />
@@ -253,7 +253,7 @@ const About = () => {
             <div className="bg-white p-6 rounded-xl text-center shadow-sm border border-gray-100">
               <div className="h-20 flex items-center justify-center mb-4">
                 <img 
-                  src="/placeholder.svg"
+                  src="/landing-page/naac.png"
                   alt="National Assessment and Accreditation Council" 
                   className="max-h-full"
                 />

@@ -80,16 +80,17 @@ const SLIDES = [
   },
   {
     id: 4,
-    title: "Millat English Medium High School & Jr. College",
-    description: "Government Recognized Minority Institution",
+    title: "Nashik Paramedical & IT College",
+    description:
+      "Industry-aligned curriculum, state-of-the-art labs, and career support.",
     imageSrc:
       "https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2070&auto=format&fit=crop",
     ctaText: "Learn More",
-    ctaLink: "/colleges/millat",
+    ctaLink: "/colleges/npic",
     stats: [
-      { value: 500, label: "Students Enrolled" },
-      { value: 30, label: "Faculty Members" },
-      { value: 12, label: "Years of Excellence" },
+      { value: 95, label: "Student Satisfaction" },
+      { value: 30, label: "Modern Facilities" },
+      { value: 20, label: "Industry Tie-ups" },
     ],
     color: "from-indigo-600/70 to-indigo-800/70",
   },

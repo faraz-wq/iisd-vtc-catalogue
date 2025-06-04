@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import ProgramsSection from "@/components/ProgramsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsEventsSection from "@/components/NewsEventsSection";
-import CallbackForm from "@/components/CallbackForm"; 
+import CallbackForm from "@/components/CallbackForm";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -187,7 +187,7 @@ const Index = () => {
                   itemProp="numMembers"
                 >
                   <AnimatedCounter
-                    value={6}
+                    value={4}
                     className="text-3xl md:text-4xl font-bold"
                   />
                 </div>
@@ -374,13 +374,11 @@ const Index = () => {
               </div>
               <div className="hidden md:block text-center">
                 <div className="relative inline-block">
-                  <div className="absolute inset-0 bg-black/10 backdrop-blur-sm rounded-xl transform rotate-3"></div>
+                  <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-xl transform rotate-3"></div>
                   <img
-                    src="/images/student-life.jpg"
+                    src="/landing-page/collaboration.jpeg"
                     alt="Students in a modern classroom setting at IISD campus collaborating with faculty"
-                    width={600}
-                    height={400}
-                    className="relative z-10 rounded-xl shadow-xl"
+                    className="relative z-10 w-[600px] h-[400px] object-cover rounded-xl shadow-xl"
                     loading="lazy"
                     decoding="async"
                     fetchPriority="high"

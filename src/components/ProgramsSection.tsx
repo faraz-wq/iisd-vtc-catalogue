@@ -183,10 +183,10 @@ const ProgramsSection = () => {
               {/* Placeholder - replace with actual program images */}
               <img 
                 src={`https://images.unsplash.com/photo-${
-                  activeProgram.id === 1 ? '1516549655959-8bde908163d5' : 
+                  activeProgram.id === 1 ? '1665315469403-fde8e923f719' : 
                   activeProgram.id === 2 ? '1519389950473-47ba0277781c' :
                   activeProgram.id === 3 ? '1581093450021-4a7360e9a6b5' :
-                  '1587854680352-936b22b91030'
+                  activeProgram.id === 4 && '1587854680352-936b22b91030' 
                 }?auto=format&fit=crop&w=800&q=80`} 
                 alt={activeProgram.title}
                 className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
