@@ -1,61 +1,55 @@
-
-
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare, CheckCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  MessageSquare,
+  CheckCircle,
+} from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import axios from 'axios';
+import axios from "axios";
 
 const contactInfo = [
   {
-    "college": "Chhatrapati Shivaji Maharaj Paramedical & IT College",
-    "address": "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth - 411042",
-    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
-    "email": "info@csmpic.edu.in",
-    "hours": "Monday - Saturday: 9:00 AM - 5:00 PM"
+    college: "Chhatrapati Shivaji Maharaj Paramedical & IT College",
+    address:
+      "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth - 411042",
+    phone: "+91 93568 96964",
+    email: "iisdvtc@gmail.com",
+    hours: "Monday - Saturday: 9:00 AM - 5:00 PM",
   },
   {
-    "college": "Royal College of Vocational Training & Skill Development",
-    "address": "Royal College Campus, Penkar Pada, Mira Road (East), Dist. Thane - 401107",
-    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
-    "email": "info@royalcollege.edu.in",
-    "hours": "Monday - Saturday: 8:30 AM - 4:30 PM"
+    college: "Royal College of Vocational Training & Skill Development",
+    address:
+      "Royal College Campus, Penkar Pada, Mira Road (East), Dist. Thane - 401107",
+    phone: "+91 93260 93464",
+    email: "royalparamedicalcentre@gmail.com",
+    hours: "Monday - Saturday: 8:30 AM - 4:30 PM",
   },
   {
-    "college": "N.H. Paramedical and IT College (NHPC)",
-    "address": "NH English Academy, Asmita Enclave, Mira Nagar, Mira Road (East), Dist. Thane - 401107",
-    "phone": "+91 8149709882, +91 8379059883, +91 8928413994",
-    "email": "info@nhpic.edu.in",
-    "hours": "Monday - Saturday: 9:30 AM - 5:30 PM"
+    college: "N.H. Paramedical and IT College (NHPC)",
+    address:
+      "NH English Academy, Asmita Enclave, Mira Nagar, Mira Road (East), Dist. Thane - 401107",
+    phone: "+91 93213 74051",
+    email: "nhpccollege@gmail.com",
+    hours: "Monday - Saturday: 9:30 AM - 5:30 PM",
   },
   {
-    "college": "Nashik Paramedical & IT College",
-    "address": "Millat Campus, Survey No. 973, Sector B/3, Shivaji Chowk, New Nashik",
-    "phone": "+91 9834093380",
-    "email": "info@npic.edu.in",
-    "hours": "Monday - Saturday: 9:00 AM - 5:00 PM"
-  },
-  {
-    "college": "Millat English Medium High School & Jr. College, New Nashik",
-    "address": "New Nashik",
-    "phone": "+91 9970966551, +91 9021911115",
-    "email": "millat.englishnews@gmail.com",
-    "hours": "Monday - Saturday: 9:00 AM - 4:00 PM"
-  },
-  {
-    "college": "Nashik Super-30 (NEET/IIT-JEE Academy)",
-    "address": "Nashik",
-    "phone": "+91 8378815050, +91 9834093380",
-    "email": "nashiksuper30@gmail.com",
-    "hours": "Monday - Saturday: 8:00 AM - 6:00 PM"
-  }
-]
-
+    college: "Nashik Paramedical & IT College",
+    address:
+      "Millat Campus, Survey No. 973, Sector B/3, Shivaji Chowk, New Nashik",
+    phone: "+91 98340 93308",
+    email: "paramedicalcollege04@gmail.com",
+    hours: "Monday - Saturday: 9:00 AM - 5:00 PM",
+  }, 
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,46 +57,48 @@ const Contact = () => {
     email: "",
     phone: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
       const API_URL = import.meta.env.VITE_API_URL;
       await axios.post(`${API_URL}/forms`, formData);
-  
+
       // Simulate form submission delay
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
-  
+
         // Reset form fields
         setFormData({
           name: "",
           email: "",
           phone: "",
           subject: "",
-          message: ""
+          message: "",
         });
-  
+
         // Show success toast
         toast({
           title: "Message Sent Successfully",
           description: "We'll get back to you as soon as possible.",
           variant: "default",
         });
-  
+
         // Reset success state after 3 seconds
         setTimeout(() => {
           setIsSuccess(false);
@@ -111,39 +107,41 @@ const Contact = () => {
     } catch (error) {
       setIsSubmitting(false);
       console.error("Form submission failed:", error);
-  
+
       // Show error toast
       toast({
         title: "Submission Failed",
-        description: "An error occurred while sending your message. Please try again.",
+        description:
+          "An error occurred while sending your message. Please try again.",
         variant: "destructive",
       });
     }
   };
-  
+
   return (
     <div className="min-h-screen bg-white">
-      
-      
       {/* Header Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-maroon-600 to-maroon-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">Contact Us</h1>
             <p className="text-lg text-white/90 mb-8">
-              Get in touch with our team for inquiries, admissions information, or any questions you may have about our programs and campuses.
+              Get in touch with our team for inquiries, admissions information,
+              or any questions you may have about our programs and campuses.
             </p>
           </div>
         </div>
       </section>
-      
+
       {/* Contact Form & Info Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Send Us a Message
+              </h2>
               <Card className="border-0 shadow-sm">
                 <CardContent className="p-6">
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -172,7 +170,7 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number</Label>
@@ -196,7 +194,7 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="message">Message</Label>
                       <Textarea
@@ -210,9 +208,9 @@ const Contact = () => {
                         className="resize-none"
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full bg-maroon-600 hover:bg-maroon-700 text-white"
                       disabled={isSubmitting}
                     >
@@ -233,10 +231,12 @@ const Contact = () => {
                   </form>
                 </CardContent>
               </Card>
-              
+
               {/* Alternative Contact Methods */}
               <div className="mt-8">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Alternative Ways to Reach Us</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">
+                  Alternative Ways to Reach Us
+                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <a
                     href="tel:+918888888888"
@@ -246,11 +246,13 @@ const Contact = () => {
                       <Phone className="h-5 w-5 text-maroon-600" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-600">Call Us</div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Call Us
+                      </div>
                       <div className="text-gray-900">+91 888 888 8888</div>
                     </div>
                   </a>
-                  
+
                   <a
                     href="mailto:info@iisd.edu.in"
                     className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-maroon-200 transition-colors"
@@ -259,52 +261,68 @@ const Contact = () => {
                       <Mail className="h-5 w-5 text-college-blue" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-600">Email Us</div>
+                      <div className="text-sm font-medium text-gray-600">
+                        Email Us
+                      </div>
                       <div className="text-gray-900">info@iisd.edu.in</div>
                     </div>
                   </a>
                 </div>
               </div>
             </div>
-            
+
             {/* Contact Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Campuses</h2>
-              <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Our Campuses
+              </h2>
+              <div className="space-y-4">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="border-0 shadow-sm overflow-hidden">
+                  <Card
+                    key={index}
+                    className="border-0 shadow-sm overflow-hidden"
+                  >
                     <div className="h-3 bg-maroon-600"></div>
-                    <CardContent className="p-6">
-                      <h3 className="text-lg font-bold text-gray-900 mb-4">{info.college}</h3>
-                      
+                    <CardContent className="px-6 py-4">
+                      <h3 className="text-md font-bold text-gray-900 mb-4">
+                        {info.college}
+                      </h3>
+
                       <div className="space-y-4">
-                        <div className="flex items-start gap-3">
+                        <div className="flex items-start gap-2">
                           <MapPin className="h-5 w-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                           <div>
-                            <div className="text-sm font-medium text-gray-600 mb-1">Address</div>
-                            <div className="text-gray-900">{info.address}</div>
+                            <div className="text-sm font-medium text-gray-600 mb-1">
+                              Address
+                            </div>
+                            <div className="text-gray-900 text-sm">{info.address}</div>
                           </div>
                         </div>
-                        
-                        <div className="flex items-start gap-3">
+
+                        <div className="flex items-start gap-2">
                           <Phone className="h-5 w-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="text-sm font-medium text-gray-600 mb-1">Phone</div>
-                            <a href={`tel:${info.phone.replace(/\s/g, '')}`} className="text-gray-900 hover:text-maroon-600">
+                            <a href={`tel:${info.phone.replace(/\s/g, '')}`} className="text-gray-900 hover:text-maroon-600 text-sm">
                               {info.phone}
                             </a>
                           </div>
                         </div>
-                        
-                        <div className="flex items-start gap-3">
+
+                        <div className="flex items-start gap-2">
                           <Mail className="h-5 w-5 text-maroon-600 flex-shrink-0 mt-0.5" />
                           <div>
-                            <div className="text-sm font-medium text-gray-600 mb-1">Email</div>
-                            <a href={`mailto:${info.email}`} className="text-gray-900 hover:text-maroon-600">
+                            <div className="text-sm font-medium text-gray-600 mb-1">
+                              Email
+                            </div>
+                            <a
+                              href={`mailto:${info.email}`}
+                              className="text-gray-900 hover:text-maroon-600 text-sm"
+                            >
                               {info.email}
                             </a>
                           </div>
-                        </div>                        
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -314,92 +332,116 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Map Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Main Campus</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Visit Our Main Campus
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Located in the heart of Mumbai, our main campus is easily accessible by public transportation
+              Located in the heart of Mumbai, our main campus is easily
+              accessible by public transportation
             </p>
           </div>
-          
+
           <div className="relative h-96 rounded-xl overflow-hidden shadow-md border border-gray-200">
             {/* Replace with actual Google Maps embed */}
             <iframe
-                loading="lazy"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  "Chhatrapati Shivaji Maharaj Paramedical & IT College" +
+              loading="lazy"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                "Chhatrapati Shivaji Maharaj Paramedical & IT College" +
                   "647, Golden Jubilee Building, Near SBI Office, Bhawani Peth - 411042"
-                )}&output=embed`}
-                className="w-full h-full"
-                style={{ border: "0" }}
-                allowFullScreen
-                title="College Location on Google Maps"
-              ></iframe>
+              )}&output=embed`}
+              className="w-full h-full"
+              style={{ border: "0" }}
+              allowFullScreen
+              title="College Location on Google Maps"
+            ></iframe>
           </div>
         </div>
       </section>
-      
+
       {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Find answers to commonly asked questions about contacting and visiting our campuses
+              Find answers to commonly asked questions about contacting and
+              visiting our campuses
             </p>
           </div>
-          
+
           <div className="max-w-3xl mx-auto">
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">What are the visiting hours for prospective students?</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  What are the visiting hours for prospective students?
+                </h3>
                 <p className="text-gray-600">
-                  Prospective students can visit our campuses during regular working hours (9 AM - 5 PM) from Monday to Saturday. 
-                  We recommend scheduling an appointment for a campus tour by calling our admissions office.
+                  Prospective students can visit our campuses during regular
+                  working hours (9 AM - 5 PM) from Monday to Saturday. We
+                  recommend scheduling an appointment for a campus tour by
+                  calling our admissions office.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">How can I get admission information?</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  How can I get admission information?
+                </h3>
                 <p className="text-gray-600">
-                  You can get admission information by calling our admission helpline, visiting our campus in person, 
-                  or filling out the contact form on this page. You can also check the Admissions page on our website.
+                  You can get admission information by calling our admission
+                  helpline, visiting our campus in person, or filling out the
+                  contact form on this page. You can also check the Admissions
+                  page on our website.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">How long does it typically take to get a response to inquiries?</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  How long does it typically take to get a response to
+                  inquiries?
+                </h3>
                 <p className="text-gray-600">
-                  We aim to respond to all inquiries within 24-48 hours on working days. For urgent matters, 
-                  we recommend calling our helpline directly for immediate assistance.
+                  We aim to respond to all inquiries within 24-48 hours on
+                  working days. For urgent matters, we recommend calling our
+                  helpline directly for immediate assistance.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Do you offer virtual campus tours?</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  Do you offer virtual campus tours?
+                </h3>
                 <p className="text-gray-600">
-                  Yes, we offer virtual campus tours for students who cannot visit in person. You can schedule a virtual tour 
-                  by contacting our admissions office through email or phone.
+                  Yes, we offer virtual campus tours for students who cannot
+                  visit in person. You can schedule a virtual tour by contacting
+                  our admissions office through email or phone.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-college-green to-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Take the Next Step?</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Take the Next Step?
+          </h2>
           <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
-            Have more specific questions about our programs? Fill out our inquire form for detailed information.
+            Have more specific questions about our programs? Fill out our
+            inquire form for detailed information.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="/inquire" 
+            <a
+              href="/inquire"
               className="inline-flex items-center px-6 py-3 bg-white text-green-700 font-medium rounded-md hover:bg-gray-100 transition-colors"
             >
               <MessageSquare className="mr-2 h-5 w-5" />
@@ -408,8 +450,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
-      
     </div>
   );
 };
