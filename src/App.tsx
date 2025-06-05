@@ -16,6 +16,7 @@ import Colleges from "./pages/Colleges";
 import GalleryPage from "./pages/GalleryPage";
 import Layout from "./components/Layout";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +41,7 @@ const App = () => (
           </Route>
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* Catch-all for 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
