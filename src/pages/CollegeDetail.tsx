@@ -117,20 +117,28 @@ const CollegeDetail = () => {
     );
   }
 
-  const isValidBanner =
-    typeof college.banner === "string" && college.banner.trim() !== "";
-  const bannerUrl = isValidBanner
-    ? college.banner
-    : "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop";
+const isValidBanner =
+  college.banner &&
+  typeof college.banner === "string" &&
+  college.banner.trim() !== "";
 
+if (!isValidBanner) {
+  console.warn("Invalid or missing banner URL, using fallback.");
+}
+
+const bannerUrl = isValidBanner
+  ? college.banner.trim()
+  : "https://images.unsplash.com/photo-1543505298-b8be9b52a21a?q=80&w=1200&auto=format&fit=crop";
+
+  
   return (
     <div className="min-h-screen flex flex-col">
       
       {/* Banner and College Info */}
       <div
-        className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat bg-gray-200"
+        className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat from-gray-900 to-gray-800"
         style={{
-          backgroundImage: `url(${bannerUrl}), linear-gradient(to bottom, #e5e7eb, #e5e7eb)`,
+          backgroundImage: `url(${bannerUrl})`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>

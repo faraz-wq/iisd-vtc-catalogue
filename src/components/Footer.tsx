@@ -231,15 +231,7 @@ const Footer = () => {
                   >
                     Terms of Service
                   </a>
-                </li>
-                <li>
-                  <a
-                    href="/sitemap"
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    Sitemap
-                  </a>
-                </li>
+                </li> 
               </ul>
             </div>
           </div>
