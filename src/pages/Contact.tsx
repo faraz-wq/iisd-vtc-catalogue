@@ -135,10 +135,10 @@ const Contact = () => {
 
       {/* Contact Form & Info Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
+          
             {/* Contact Form */}
-            <div>
+            <div className="lg:w-1/2">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h2>
@@ -231,44 +231,6 @@ const Contact = () => {
                   </form>
                 </CardContent>
               </Card>
-
-              {/* Alternative Contact Methods */}
-              <div className="mt-8">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">
-                  Alternative Ways to Reach Us
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <a
-                    href="tel:+918888888888"
-                    className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-maroon-200 transition-colors"
-                  >
-                    <div className="h-10 w-10 rounded-full bg-maroon-100 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-5 w-5 text-maroon-600" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-gray-600">
-                        Call Us
-                      </div>
-                      <div className="text-gray-900">+91 888 888 8888</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="mailto:info@iisd.edu.in"
-                    className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-maroon-200 transition-colors"
-                  >
-                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-5 w-5 text-college-blue" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-gray-600">
-                        Email Us
-                      </div>
-                      <div className="text-gray-900">info@iisd.edu.in</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
             </div>
 
             {/* Contact Information */}
@@ -276,7 +238,7 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Our Campuses
               </h2>
-              <div className="space-y-4">
+              <div className="gap-6 grid lg:grid-cols-2 ">
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
@@ -329,7 +291,7 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-          </div>
+          
         </div>
       </section>
 

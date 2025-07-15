@@ -33,6 +33,23 @@ const getSchemaMarkup = (slide) => {
 const SLIDES = [
   {
     id: 1,
+    title: "Goa College of Skill Development",
+    description:
+      "Industry-aligned curriculum, state-of-the-art labs, and career support.",
+    ctaText: "Explore Paramedical Programs",
+    ctaLink: "/colleges/gcsd",
+    imageSrc:
+      "https://images.unsplash.com/photo-1567168544646-208fa5d408fb?q=80&w=2070&auto=format&fit=crop",
+    stats: [
+      { value: 100, label: "Job Placement" },
+      { value: 25, label: "Industry Partners" },
+      { value: 10, label: "Healthcare Programs" },
+    ],
+    color: "from-[#800000]/70 to-[#6F2A3D]/70",
+    featured: true,
+  },
+  {
+    id: 2,
     title: "Chatrapati Shivaji Maharaj Paramedical & IT College",
     description:
       "UGC approved paramedical education programs with 100% job placement track record",
@@ -45,10 +62,10 @@ const SLIDES = [
       { value: 25, label: "Industry Partners" },
       { value: 10, label: "Healthcare Programs" },
     ],
-    color: "from-maroon-600/70 to-maroon-800/70",
+    color: "from-[#6F2A3D]/70 to-[#4A3B6C]/70",
   },
   {
-    id: 2,
+    id: 3,
     title: "Royal College of Vocational Training & Skill Development",
     description:
       "Recognized by Government of India, offering vocational and skill-based courses",
@@ -61,10 +78,10 @@ const SLIDES = [
       { value: 70, label: "Practical Training" },
       { value: 15, label: "Vocational Courses" },
     ],
-    color: "from-college-green/70 to-college-green/70",
+    color: "from-[#4A3B6C]/70 to-[#2F4B7C]/70",
   },
   {
-    id: 3,
+    id: 4,
     title: "N.H. Paramedical and IT College (NHPC)",
     description: "Bridging healthcare and technology for future professionals",
     imageSrc:
@@ -76,10 +93,10 @@ const SLIDES = [
       { value: 20, label: "Specialized Labs" },
       { value: 12, label: "IT Programs" },
     ],
-    color: "from-college-blue/70 to-college-blue/70",
+    color: "from-[#2F4B7C]/70 to-[#1C509E]/70",
   },
   {
-    id: 4,
+    id: 5,
     title: "Nashik Paramedical & IT College",
     description:
       "Industry-aligned curriculum, state-of-the-art labs, and career support.",
@@ -92,7 +109,7 @@ const SLIDES = [
       { value: 30, label: "Modern Facilities" },
       { value: 20, label: "Industry Tie-ups" },
     ],
-    color: "from-indigo-600/70 to-indigo-800/70",
+    color: "from-[#1C509E]/70 to-[#0000FF]/70",
   },
 ];
 
@@ -104,11 +121,11 @@ const Hero = () => {
   // Get text color based on gradient
   const getTextColor = (gradient) => {
     const colorMap = {
-      "from-maroon-600/70 to-maroon-800/70": "text-maroon-600",
-      "from-college-green/70 to-college-green/70": "text-college-green",
-      "from-college-blue/70 to-college-blue/70": "text-college-blue",
-      "from-indigo-600/70 to-indigo-800/70": "text-indigo-600",
-      "from-orange-600/70 to-orange-800/70": "text-orange-800",
+      "from-[#800000]/70 to-[#6F2A3D]/70": "text-[#800000]/70",
+      "from-[#6F2A3D]/70 to-[#4A3B6C]/70": "text-[#6F2A3D]/70",
+      "from-[#4A3B6C]/70 to-[#2F4B7C]/70": "text-[#4A3B6C]/70",
+      "from-[#2F4B7C]/70 to-[#1C509E]/70": "text-[#2F4B7C]/70",
+      "from-[#1C509E]/70 to-[#0000FF]/70": "text-[#0000FF]/70",
     };
     return colorMap[gradient] || "text-white";
   };
@@ -227,9 +244,11 @@ const Hero = () => {
                         itemScope
                         itemType="https://schema.org/EducationalOrganization"
                       >
-                        <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-white/20 backdrop-blur-sm">
-                          Featured Institution
-                        </span>
+                        {slide.featured && (
+                          <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-white/20 backdrop-blur-sm">
+                            Featured Institution
+                          </span>
+                        )}
 
                         {index === activeSlide && (
                           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
