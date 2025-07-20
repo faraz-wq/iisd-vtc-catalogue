@@ -187,7 +187,7 @@ const Index = () => {
                   itemProp="numMembers"
                 >
                   <AnimatedCounter
-                    value={4}
+                    value={5}
                     className="text-3xl md:text-4xl font-bold"
                   />
                 </div>
