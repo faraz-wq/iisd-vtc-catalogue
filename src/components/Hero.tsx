@@ -251,9 +251,10 @@ const Hero = () => {
                         )}
 
                         {index === activeSlide && (
-                          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                          <a className="block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                           href={slide.ctaLink}>
                             {slide.title}
-                          </h1>
+                          </a>
                         )}
 
                         <p
