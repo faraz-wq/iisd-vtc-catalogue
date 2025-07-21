@@ -36,14 +36,14 @@ const SLIDES = [
     title: "Goa College of Skill Development",
     description:
       "Industry-aligned curriculum, state-of-the-art labs, and career support.",
-    ctaText: "Explore Paramedical Programs",
+    ctaText: "Learn More",
     ctaLink: "/colleges/gcsd",
     imageSrc:
       "https://images.unsplash.com/photo-1567168544646-208fa5d408fb?q=80&w=2070&auto=format&fit=crop",
     stats: [
-      { value: 100, label: "Job Placement" },
-      { value: 25, label: "Industry Partners" },
-      { value: 10, label: "Healthcare Programs" },
+      { value: 70, label: "Practical Training" },
+      { value: 85, label: "Employment Rate" },
+      { value: 6, label: "SKill Programs" },
     ],
     color: "from-[#800000]/70 to-[#6F2A3D]/70",
     featured: true,
